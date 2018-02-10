@@ -21,7 +21,9 @@ public class Combinatoria {
   }
 
   /**
-   * Devuelve el número de combinaciones posibles de n elementos tomados de k en k
+   * Devuelve el número de combinaciones posibles de n elementos tomados de k en k.
+   * En este caso, comprobaremos primero si están en cache. Si están, lo cargamos directamente.
+   * Si no, calculamos el número y lo añadimos a la cache.
    * @param n Número de elementos totales
    * @param k Número de elementos, sin repetición, en cada combinación
    * @return valor del coeficiente binomial (n, k)
