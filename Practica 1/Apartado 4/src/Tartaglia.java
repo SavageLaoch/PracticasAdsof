@@ -10,7 +10,7 @@ public class Tartaglia {
   private Combinatoria c;
   private int n;
 
-  /** 
+  /**
   * Construye un nuevo objeto de tipo Tartaglia con los parametros.
   * @param c Objeto combinatoria
   * @param n Numero de filas.
@@ -20,7 +20,7 @@ public class Tartaglia {
     this.n = n;
   }
 
-  /** 
+  /**
   * Convierte a texto el triangulo de Tartaglia.
   * @return Cadena de caracteres con el triangulo.
   **/
@@ -35,7 +35,7 @@ public class Tartaglia {
     }
     return s;
   }
-  /** 
+  /**
   * Punto de entrada a la aplicacion.
   * Este metodo imprime el triangulo de tartaglia asociado al
   * parametro de entrada
