@@ -1,4 +1,7 @@
-
+/**
+* Definicion de la clase Fecha.
+* @author Juan Velasco y Miguel Angel Sanchez.
+**/
 
 public class Fecha{
 
@@ -6,13 +9,25 @@ public class Fecha{
   private int mes;
   private int dia;
 
+  /**
+  * Construye un nuevo objeto de tipo Fecha con los parametros:
+  * @param anyo Año de la fecha
+  * @param mes Mes de la fecha
+  * @param dia Dia de la fecha
+  **/
+
   public Fecha (int anyo, int mes, int dia){
     this.anyo = anyo;
     this.mes = mes;
     this.dia = dia;
   }
 
-  public isFechaValida(){
+  /**
+  * Comprueba si una fecha es valida o no
+  * @return True si es valida o False si no
+  **/
+
+  public boolean isFechaValida(){
     if (mes > 12 || mes < 1){
       return false;
     }
@@ -39,12 +54,17 @@ public class Fecha{
           return false;
         }
       }
+    }
+    return true;
   }
 
-  return true;
-}
-
-public toString(){
-  s = "";
-  return s + anyo + "-" + mes + "-" + dia;
+  /**
+  * COnvierte a texto la fehca guardada
+  * @return Fecha en formato yyyy-mm-dd
+  **/
+  
+  public String toString(){
+    String s = "";
+    return s + anyo + "-" + mes + "-" + dia;
+  }
 }
