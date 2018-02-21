@@ -1,0 +1,5 @@
+- Revisar la clase abstracta persona. Puede no ser necesaria
+- Completar relaciones de los profesores y completar requisitos de profesores
+- Revisar la clase aula y cokmpletar relaciones. Puede no ser necesaria
+- Completar relaciones con autoescuela. Ver si estan contenidas o es una simple relacion
+- Poner los metodos (isi pisi)
