@@ -1,5 +1,9 @@
-- Revisar la clase abstracta persona. Puede no ser necesaria
-- Completar relaciones de los profesores y completar requisitos de profesores
-- Revisar la clase aula y cokmpletar relaciones. Puede no ser necesaria
+- Revisar la clase abstracta persona. Puede no ser necesaria.                          ///Yo creo que si lo es, por la informacion que comparten alumno y profesor.
+- Completar relaciones de los profesores y completar requisitos de profesores          ///He añadido numeroClases para poder calcular sueldo final
+- Revisar la clase aula y completar relaciones. Puede no ser necesaria
 - Completar relaciones con autoescuela. Ver si estan contenidas o es una simple relacion
 - Poner los metodos (isi pisi)
+
+//Creo que hay que modificar la relacion entre Alumno y clases y a lo mejor ponerla directamente a cada tipo de clase por el hecho de que hasta 2 alumnos pueden ir a una misma clase practica pero no pasa lo mismo con las teoricas o los examenes.
+//Yo quitaria al encargado y lo añadiria como atributo a autoescuela
+//Y no se si es necesario una clase que sea CadenaAutoescuelas... que requeriria cambiar algunas realciones que van a Autoescuela y ponerlas directamente a CadenaAutoescuelas.
