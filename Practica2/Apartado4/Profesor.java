@@ -15,17 +15,17 @@ public class Profesor{
 /**
 * Construye un objeto de tipo Profesor con los siguientes parametros
 *@param dni Dni del profesore
-*@param nombre: Nombre del profesor
-*@param apellidos: Apellidos del profesor
-*@param telefono: Telefono del profesor
-*@param seguridadSocial: numero de la seguridad social
-*@param trabajo: autoescuelas en las que ha trabajado, incluyendo su periodo de trabajo
+*@param nombre Nombre del profesor
+*@param apellidos Apellidos del profesor
+*@param telefono Telefono del profesor
+*@param seguridadSocial numero de la seguridad social
+*@param trabajo autoescuelas en las que ha trabajado, incluyendo su periodo de trabajo
 **/
 
 public Profesor(String dni, String nombre, String apellidos,int telefono,int seguridadSocial){
     this.dni = dni;
     this.nombre = nombre;
-    this.apellidos = apellids;
+    this.apellidos = apellidos;
     this.telefono = telefono;
     this.seguridadSocial = seguridadSocial;
     trabajo = new ArrayList<TrabajoAnterior>();
@@ -35,17 +35,17 @@ public Profesor(String dni, String nombre, String apellidos,int telefono,int seg
   * Devuelve un string con el nombre completo del profesor
   **/
 
-  getNombreCompleto(){
+public String getNombreCompleto(){
     return nombre + " " + apellidos;
   }
-  addTrabajoAnterior(TrabajoAnterior t){
+public void addTrabajoAnterior(TrabajoAnterior t){
     trabajo.add(t);
   }
   /**
   * Devuelve la lista de TrabajoAnterior con los trabajos anteriores del profesor
   **/
 
-  getTrabajosAnteriores(){
+public List<TrabajoAnterior> getTrabajosAnteriores(){
     return trabajo;
   }
 }

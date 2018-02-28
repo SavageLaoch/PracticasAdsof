@@ -10,9 +10,9 @@ public class TrabajoAnterior{
 
   /**
   * Construye un objeto de TrabajoAnterior
-  *@param autoescuela: autoescula donde ha trabajado
-  *@param fechaIni: fecha de inicio del trabajo
-  *@param fechaFin: fecha de fin del trabajo
+  *@param autoescuela autoescula donde ha trabajado
+  *@param fechaIni fecha de inicio del trabajo
+  *@param fechaFin fecha de fin del trabajo
   **/
 
   public TrabajoAnterior(Autoescuela autoescula, Fecha fechaIni, Fecha fechaFin){
@@ -25,7 +25,7 @@ public class TrabajoAnterior{
   * Devuelve el objeto autoescuela del trabajo anterior
   **/
 
-  public getAutoescuela(){
+  public Autoescuela getAutoescuela(){
     return autoescula;
   }
 
@@ -33,7 +33,7 @@ public class TrabajoAnterior{
   * Devuelve la fecha de inicio del trabajo anterior
   **/
 
-  public getFechaIni(){
+  public Fecha getFechaIni(){
     return fechaIni;
   }
 
@@ -41,7 +41,7 @@ public class TrabajoAnterior{
   * Devuelve la fecha de fin del trabajo anterior
   **/
 
-  public getFechaFin(){
-    return getFechaFin;
+  public Fecha getFechaFin(){
+    return fechaFin;
   }
 }
