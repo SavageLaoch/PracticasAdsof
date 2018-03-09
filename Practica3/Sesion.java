@@ -9,7 +9,7 @@ public class Sesion {
   private Date fecha;
   private Pelicula pelicula;
   private int butacasDisponibles;
-  private int butacasTotales;  
+  private int butacasTotales;
 
 
   public Sesion(Date fecha, Pelicula pelicula, int butacasDisponibles, int butacasTotales) {
@@ -19,13 +19,13 @@ public class Sesion {
     this.butacasTotales=butacasTotales;
   }
 
-  public Date getFecha() {return fecha}
+  public Date getFecha() {return fecha;}
 
-  public Pelicula getPelicula() {return pelicula}
+  public Pelicula getPelicula() {return pelicula;}
 
-  public int getButacasDisponibles() {return butacasDisponibles}
+  public int getButacasDisponibles() {return butacasDisponibles;}
 
-  public int getButacasTotales() {return butacasTotales}
+  public int getButacasTotales() {return butacasTotales;}
 
   public void setButacasDisponibles(int butacasDisponibles) {
     this.butacasDisponibles=butacasDisponibles;
@@ -41,7 +41,4 @@ public class Sesion {
       return true;
     }
   }
-
-
-
-  
+}

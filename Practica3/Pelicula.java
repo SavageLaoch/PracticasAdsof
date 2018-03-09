@@ -14,15 +14,15 @@ public class Pelicula{
     this.genero = genero;
   }
 
-  public String getTitulo() {return titulo}
+  public String getTitulo() {return titulo;}
 
-  public String getDirector() {return director}
+  public String getDirector() {return director;}
 
-  public Integer getAnno() {return anno}
+  public Integer getAnno() {return anno;}
 
-  public String getSinopsis() {return sinopsis}
+  public String getSinopsis() {return sinopsis;}
 
-  public Genero getGenero() {return genero}
+  public Genero getGenero() {return genero;}
 
   public void setTitulo(String titulo) {
     this.titulo = titulo;

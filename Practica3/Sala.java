@@ -9,14 +9,14 @@ public class Sala{
     public Sala(int id,int butacas){
       this.id = id;
       this.butacas = butacas;
-      sesiones = new ArrayList<>;
+      sesiones = new ArrayList<>();
     }
 
-    public Integer getId(){return id}
+    public Integer getId(){return id;}
 
-    public Integer getButacas(){return butacas}
+    public Integer getButacas(){return butacas;}
 
-    public Integer setButacas(Integer butacas){
+    public void setButacas(Integer butacas){
       this.butacas = butacas;
     }
 
