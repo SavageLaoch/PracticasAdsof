@@ -6,20 +6,20 @@ import java.util.*;
  */
 public class Sesion {
 
-  private Date fecha;
+  private Calendar fecha;
   private Pelicula pelicula;
   private int butacasDisponibles;
   private int butacasTotales;
 
 
-  public Sesion(Date fecha, Pelicula pelicula, int butacasDisponibles, int butacasTotales) {
+  public Sesion(Calendar fecha, Pelicula pelicula, int butacasDisponibles, int butacasTotales) {
     this.fecha=fecha;
     this.pelicula=pelicula;
     this.butacasDisponibles=butacasDisponibles;
     this.butacasTotales=butacasTotales;
   }
 
-  public Date getFecha() {return fecha;}
+  public Calendar getFecha() {return fecha;}
 
   public Pelicula getPelicula() {return pelicula;}
 
