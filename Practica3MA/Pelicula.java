@@ -115,7 +115,7 @@ public class Pelicula{
     String s;
     s = "Pelicula: " + titulo + "\n";
     s = s + "Director: " + director + "\n";
-    s = s + "Año: " + anno + "\n";
+    s = s + "Anno: " + anno + "\n";
     s = s + "Sinopsis: " + sinopsis + "\n";
     s = s + "Genero: " + genero.getNombre();
     return s;

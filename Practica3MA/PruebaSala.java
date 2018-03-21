@@ -19,7 +19,7 @@ public class PruebaSala {
 		s1 = new Sesion (d1,p,s.getButacas(),s.getButacas());
 		s2 = new Sesion (d2,p,s.getButacas(),s.getButacas());
 		s3 = new Sesion (d3,p,s.getButacas(),s.getButacas());
-		System.out.println("Probamos a añadir una sesion\n");
+		System.out.println("Probamos a anadir una sesion\n");
 		System.out.println(s.anyadirSesion(s1));
 		s.anyadirSesion(s2);
 		
@@ -32,7 +32,7 @@ public class PruebaSala {
 			System.out.println("Datos de la sesion: " + "\n" + sesion);
 		}
 		
-		System.out.println("Probamos a añadir una sesion con una fecha que ya esta\n");
+		System.out.println("Probamos a anadir una sesion con una fecha que ya esta\n");
 		System.out.println(s.anyadirSesion(s1));
 		
 		System.out.println("Probamos a eliminar una sesion");

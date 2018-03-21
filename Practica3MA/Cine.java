@@ -38,7 +38,8 @@ public Cine(String nombre,String direccion){
     peliculas.add(p);
     return p;
   }
-
+  /**No necesario con la nueva forma de vender entradas
+   * 
   public Entrada crearEntrada(double precio, double descuento, LocalDate fecha){
 	Entrada e;
 	for(Entrada ent: entradas) {
@@ -54,6 +55,7 @@ public Cine(String nombre,String direccion){
 	entradas.add(e);
 	return e;
   }
+  **/
 
   public Sala crearSala(int id, int butacas){
     Sala s;
@@ -102,17 +104,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return null;
   }
-  
-  public Boolean removeEntrada(LocalDate fecha) {
-	  for (Entrada e: entradas) {
-		  if (e.getFecha().equals(fecha)) {
-			  entradas.remove(e);
-			  return true;
-		  }
-	  }
-	  return false;
-  }
-  
+    
   public Boolean removeSala(int id) {
 	  for (Sala s: salas) {
 		  if (s.getId() == id) {
@@ -177,7 +169,7 @@ public Cine(String nombre,String direccion){
   public String getCartelera() {
 	  String res = "";
 	  for (Pelicula p: peliculas) {
-		  res = res + p + "\n";
+		  res = res + p.getTitulo() + "\n";
 	  }
 	  return res;
   }
@@ -185,7 +177,7 @@ public Cine(String nombre,String direccion){
 	  String res = "";
 	  for (Sala s: salas) {
 		  for (Sesion ses: s.getSesiones()) {
-			  res = res + ses + s + "\n";
+			  res = res + "Pelicula: " + ses.getPelicula().getTitulo() + "\nFecha: " + ses.getFecha() + "\nSala: " +  s.getId() + "\n";
 		  }
 	  }
 	  return res;
@@ -205,8 +197,8 @@ public Cine(String nombre,String direccion){
 	  }
 	  return res;
   }
-  /** faltan vender entradas y preguntar que tienen los javis**/
-  
+  /** Vender entrada antiguo
+   * 
   public String venderEntrada(int numero, Sesion s) {
 	  Entrada e;
 	  String res;
@@ -233,5 +225,45 @@ public Cine(String nombre,String direccion){
 	  res = "" + s + sala + "\nPrecio: " + numero*e.getPrecioFinal() + "\n";
 	  return res;
   }
+  **/
+  
+	public String venderEntrada(int numero, Sesion s, double precio, double descuento) {
+		Entrada e;
+		String res;
+		Sala sala = null;
+		double preciofinal=0;
+		for (Sala sal : salas) {
+			if (sal.getSesion(s.getFecha()).equals(s)) {
+				sala = sal;
+				break;
+			}
+		}
+		if (sala == null) {
+			res = "No existe la sesion";
+			return res;
+		}
+
+		if (s.venderButacas(numero) == false) {
+			res = "No hay suficientes butacas";
+			return res;
+		}
+
+		if (descuento != 0.0) {
+			for (int i = 0; i < numero; i++) {
+				e = new EntradaDiaEspectador(precio, descuento, s.getFecha());
+				preciofinal = e.getPrecioFinal();
+				entradas.add(e);
+			}
+		} else {
+			for (int i = 0; i < numero; i++) {
+				e = new Entrada(precio, s.getFecha());
+				preciofinal = e.getPrecioFinal();
+				entradas.add(e);
+			}
+		}
+		res = "Pelicula: " + s.getPelicula().getTitulo() + "\nFecha: " + s.getFecha() + "\nSala: " +  sala.getId() + "\nNumero de butacas vendidas: " + numero +  "\nPrecio por butaca: " + preciofinal + "\nPrecio total: " + numero * preciofinal;
+		return res;
+	}
+  
   
 }
