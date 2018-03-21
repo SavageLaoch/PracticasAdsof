@@ -42,4 +42,11 @@ public class Sala{
     public Boolean eliminarSesion(Sesion s){
       return sesiones.remove(s);
     }
+    
+    public String toString(){
+        String s;
+        s = "Sala: " + id + "\n";
+        s = s + "ButacasTotales: " + butacas;
+        return s;
+      }
 }

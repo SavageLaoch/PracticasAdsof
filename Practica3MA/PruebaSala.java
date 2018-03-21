@@ -4,8 +4,8 @@ import java.util.*;
 public class PruebaSala {
 	public static void main(String[] args) {
 		Pelicula p;
-		Sesion s1,s2;
-		LocalDate d1,d2;
+		Sesion s1,s2,s3,s4;
+		LocalDate d1,d2,d3;
 		Sala s;
 		int a, b;
 		List<Sesion> sesiones;
@@ -15,6 +15,7 @@ public class PruebaSala {
 		p = new Pelicula ("Titanic","James Cameron",1997,"And thaaaaaaaaiaaaaaaa will aaalways love youuuuuuuuu",Genero.COMEDIA);
 		d1 = LocalDate.of(1991,3,31);
 		d2 = LocalDate.of(1992,4,16);
+		d3 = LocalDate.of(2000,4,16);
 		s1 = new Sesion (d1,p,s.getButacas(),s.getButacas());
 		s2 = new Sesion (d2,p,s.getButacas(),s.getButacas());
 		s.anyadirSesion(s1);
@@ -24,18 +25,24 @@ public class PruebaSala {
 		a = s.getId();
 		b = s.getButacas();
 		sesiones = s.getSesiones();
-		System.out.println("Id: " + a +  "\n" + "Butacas totales:" + b + "\n");
+		System.out.println(s + "\n");
 		for (Sesion sesion: sesiones){
 			System.out.println("Datos de la sesion: " + "\n" + sesion);
 		}
 		
-		System.out.println("Probamos a eliminar una sesion y a modificar la otra");
+		System.out.println("Probamos a eliminar una sesion");
 		s.eliminarSesion(s2);
 		sesiones = s.getSesiones();
-		System.out.println("Id: " + a +  "\n" + "Butacas totales:" + b + "\n");
+		System.out.println(s + "\n");
 		for (Sesion sesion: sesiones){
 			System.out.println("Datos de la sesion: " + "\n" + sesion);
 		}
 		
+		System.out.println("Por ultimo probamos a escoger una sesion asignada a esta sala en una determinada fecha");
+		s3 = s.getSesion(d1);
+		System.out.println(s3 + "\n");		
+		System.out.println("Si usasemos una fecha en la que no hay sesion");
+		s4 = s.getSesion(d3);
+		System.out.println(s4 + "\n");		
 	}
 }
