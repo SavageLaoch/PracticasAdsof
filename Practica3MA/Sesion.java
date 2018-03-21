@@ -27,8 +27,12 @@ public class Sesion {
 
   public int getButacasTotales() {return butacasTotales;}
 
-  public void setButacasDisponibles(int butacasDisponibles) {
-    this.butacasDisponibles=butacasDisponibles;
+  public Boolean setButacasDisponibles(int butacasDisponibles) {
+	  if (butacasDisponibles > this.butacasTotales) {
+		  return false;
+	  }
+	  this.butacasDisponibles=butacasDisponibles;
+	  return true;
   }
 
   public Boolean venderButacas(int butacasVendidas) {
@@ -40,6 +44,10 @@ public class Sesion {
       this.butacasDisponibles=i;
       return true;
     }
+  }
+  
+  public int getButacasVendidas() {
+	  return butacasTotales - butacasDisponibles;
   }
   
   public String toString(){

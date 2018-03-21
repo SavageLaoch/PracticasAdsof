@@ -4,7 +4,7 @@
  *
  */
 public enum Genero {
-  TERROR("TERROR"), COMEDIA("COMEDIA"),  ACCION("ACCION"), CIENCIAFICCION("CIENCIAFICCION");
+  TERROR("Terror"), COMEDIA("Comedia"),  ACCION("Accion"), CIENCIAFICCION("Ciencia Ficcion");
 
   private Genero(String s){ nombre=s; }
   private final String nombre;

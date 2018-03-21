@@ -1,8 +1,8 @@
 import java.util.*;
-
+import java.time.LocalDate;
 public class Sala{
 
-    private int id;
+    private final int id;
     private int butacas;
     private List<Sesion> sesiones;
 
@@ -24,7 +24,7 @@ public class Sala{
       return sesiones;
     }
 
-    public Sesion getSesion(Date fecha){
+    public Sesion getSesion(LocalDate fecha){
       for(Sesion sesion: sesiones){
         if(sesion.getFecha().equals(fecha)){
           return sesion;

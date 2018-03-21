@@ -1,9 +1,10 @@
+import java.time.LocalDate;
 
 public class EntradaDiaEspectador extends Entrada{
   private double descuento;
 
-  public EntradaDiaEspectador(double precio,double descuento){
-    super(precio);
+  public EntradaDiaEspectador(double precio,double descuento,LocalDate fecha){
+    super(precio,fecha);
     this.descuento = descuento;
   }
 
