@@ -41,7 +41,7 @@ public class PruebaSala {
 		System.out.println("Por ultimo probamos a escoger una sesion asignada a esta sala en una determinada fecha");
 		s3 = s.getSesion(d1);
 		System.out.println(s3 + "\n");		
-		System.out.println("Si usasemos una fecha en la que no hay sesion");
+		System.out.println("Si usasemos una fecha en la que no hay sesion se devolveria: ");
 		s4 = s.getSesion(d3);
 		System.out.println(s4 + "\n");		
 	}
