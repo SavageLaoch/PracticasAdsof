@@ -13,14 +13,21 @@ public class Cine {
   private List<Sala> salas;
   private List<Entrada> entradas;
 
-  public Cine(String nombre,String direccion){
+  /**
+ * @param nombre
+ * @param direccion
+ */
+public Cine(String nombre,String direccion){
     this.nombre=nombre;
     this.direccion=direccion;
     peliculas = new ArrayList<>();
     salas = new ArrayList<>();
     entradas = new ArrayList<>();
   }
-
+  /**
+   * 
+   * @return
+   */
   public String getNombre() {return nombre;}
 
   public String getDireccion() {return direccion;}
@@ -147,7 +154,7 @@ public class Cine {
 	  return cartelera;
   }
   
-  public HashMap<Sesion,Sala> getSesionesPelicula(String nombre){
+  public HashMap<Sesion,Sala> getPeliculas(String nombre){
 	  HashMap<Sesion,Sala>  cartelera = new HashMap<>();
 	  Pelicula p = this.getPelicula(nombre);
 	  if (p == null) {
@@ -166,6 +173,14 @@ public class Cine {
    * Hay que ver la impresion como queda
    * @return
    */
+  
+  public String getCartelera() {
+	  String res = "";
+	  for (Pelicula p: peliculas) {
+		  res = res + p + "\n";
+	  }
+	  return res;
+  }
   public String getSesiones() {
 	  String res = "";
 	  for (Sala s: salas) {
