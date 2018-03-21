@@ -16,10 +16,6 @@ public class Sala{
 
     public Integer getButacas(){return butacas;}
 
-    public void setButacas(Integer butacas){
-      this.butacas = butacas;
-    }
-
     public List<Sesion> getSesiones(){
       return sesiones;
     }

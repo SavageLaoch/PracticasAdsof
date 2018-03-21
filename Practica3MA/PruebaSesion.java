@@ -35,14 +35,14 @@ public class PruebaSesion{
     
     System.out.println("\nProbamos a vender butacas\n");
     if (s1.venderButacas(5)) {
-    	System.out.println("Disponibles s1: " + s1.getButacasDisponibles() + " " + "Disponibles s1: "+ s1.getButacasTotales());
+    	System.out.println("Disponibles s1: " + s1.getButacasDisponibles() + " " + "Totales s1: "+ s1.getButacasTotales());
     }else {
-    	System.out.println("No se han podido vender las butacas para s1 (5)\n");
+    	System.out.println("No se han podido vender 5 butacas para s1\n");
     }
     if (s2.venderButacas(500)) {
     	System.out.println("Disponibles s2: " + s2.getButacasDisponibles() + " " + "Totales s2: " + s2.getButacasTotales());
     }else {
-    	System.out.println("No se han podido vender las butacas en s2(500)\n");
+    	System.out.println("No se han podido vender 500 butacas en s2\n");
     }
     System.out.println("\nProbamos a ver las butacas vendidas\n");
     System.out.println("Vendidas s1: " + s1.getButacasVendidas());
