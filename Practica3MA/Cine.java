@@ -163,6 +163,19 @@ public class Cine {
 	  return cartelera;
   }
   /**
+   * Hay que ver la impresion como queda
+   * @return
+   */
+  public String getSesiones() {
+	  String res = "";
+	  for (Sala s: salas) {
+		  for (Sesion ses: s.getSesiones()) {
+			  res = res + ses + s + "\n";
+		  }
+	  }
+	  return res;
+  }
+  /**
    * Esto es valido porque no vamos a permitir vender entradas sin precio en el dia
    * @return
    */
@@ -178,5 +191,9 @@ public class Cine {
 	  return res;
   }
   /** faltan vender entradas y preguntar que tienen los javis**/
+  
+  public String venderEntrada(int numero,LocalDate fecha, Pelicula p) {
+	  
+  }
   
 }
