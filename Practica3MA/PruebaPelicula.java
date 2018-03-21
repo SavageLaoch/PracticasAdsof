@@ -46,5 +46,7 @@ public class PruebaPelicula{
      */
     System.out.println("\n¿Son P1 y P2 iguales?");
     System.out.println("\n" + p1.equals(p2));
+    System.out.println("\n¿Son P1 y P1 iguales?");
+    System.out.println("\n" + p1.equals(p1));
   }
 }

@@ -18,10 +18,12 @@ public class PruebaSala {
 		d3 = LocalDate.of(2000,4,16);
 		s1 = new Sesion (d1,p,s.getButacas(),s.getButacas());
 		s2 = new Sesion (d2,p,s.getButacas(),s.getButacas());
-		s.anyadirSesion(s1);
+		s3 = new Sesion (d3,p,s.getButacas(),s.getButacas());
+		System.out.println("Probamos a añadir una sesion\n");
+		System.out.println(s.anyadirSesion(s1));
 		s.anyadirSesion(s2);
 		
-		System.out.println("Probamos los getters en s y vemos que se hayan anadido bien las sesiones");
+		System.out.println("\nProbamos los getters en s y vemos que se hayan anadido bien las sesiones");
 		a = s.getId();
 		b = s.getButacas();
 		sesiones = s.getSesiones();
@@ -30,6 +32,9 @@ public class PruebaSala {
 			System.out.println("Datos de la sesion: " + "\n" + sesion);
 		}
 		
+		System.out.println("Probamos a añadir una sesion con una fecha que ya esta\n");
+		System.out.println(s.anyadirSesion(s1));
+		
 		System.out.println("Probamos a eliminar una sesion");
 		s.eliminarSesion(s2);
 		sesiones = s.getSesiones();
@@ -37,6 +42,8 @@ public class PruebaSala {
 		for (Sesion sesion: sesiones){
 			System.out.println("Datos de la sesion: " + "\n" + sesion);
 		}
+		System.out.println("Probamos a elminar una sesion con fallo");
+		System.out.println(s.eliminarSesion(s3) + "\n");
 		
 		System.out.println("Por ultimo probamos a escoger una sesion asignada a esta sala en una determinada fecha");
 		s3 = s.getSesion(d1);
