@@ -28,9 +28,7 @@ public Cine(String nombre,String direccion){
    * 
    * @return
    */
-  public String getNombre() {return nombre;}
 
-  public String getDireccion() {return direccion;}
 
   public Pelicula crearPelicula(String titulo,String director,int anno,String sinopsis,Genero genero){
     Pelicula p;
@@ -38,24 +36,6 @@ public Cine(String nombre,String direccion){
     peliculas.add(p);
     return p;
   }
-  /**No necesario con la nueva forma de vender entradas
-   * 
-  public Entrada crearEntrada(double precio, double descuento, LocalDate fecha){
-	Entrada e;
-	for(Entrada ent: entradas) {
-		if (ent.getFecha().equals(fecha)) {
-			return null;
-		}
-	}
-	if (descuento != 0.0) {
-		e = new EntradaDiaEspectador(precio,descuento,fecha);
-	}else {
-		e = new Entrada(precio,fecha);
-	}
-	entradas.add(e);
-	return e;
-  }
-  **/
 
   public Sala crearSala(int id, int butacas){
     Sala s;
@@ -77,15 +57,10 @@ public Cine(String nombre,String direccion){
     };
     return s;
   }
+  
+  public String getNombre() {return nombre;}
 
-  public Entrada getEntrada(LocalDate fecha) {
-	  for (Entrada e: entradas) {
-		  if (e.getFecha().equals(fecha)) {
-			  return e;
-		  }
-	  }
-	  return null;
-  }
+  public String getDireccion() {return direccion;}
   
   public Sala getSala(int id) {
 	  for (Sala s: salas) {
@@ -117,14 +92,19 @@ public Cine(String nombre,String direccion){
   
   public int removePelicula(String nombre) {
 	  int res = 0;
+	  
 	  for (Pelicula p: peliculas) {
 		  if (p.getTitulo().equals(nombre)) {
 			  for (Sala s: salas) {
+				  List<Sesion> puente = new ArrayList<>();
 				  for (Sesion ses: s.getSesiones()) {
 					  if (ses.getPelicula().equals(p)) {
-						  s.getSesiones().remove(ses);
+						  puente.add(ses);
 						  res = res + 1;
 					  }
+				  }
+				  for (Sesion ses: puente) {
+					  s.getSesiones().remove(ses);
 				  }
 			  }
 			  peliculas.remove(p);
@@ -134,33 +114,7 @@ public Cine(String nombre,String direccion){
 	  return -1;
   }
   
-  public HashMap<Sesion,Sala> getCartelera(LocalDate fecha){
-	  HashMap<Sesion,Sala>  cartelera = new HashMap<>();
-	  Sesion ses;
-	  for (Sala s: salas) {
-		  ses = s.getSesion(fecha);
-		  if (ses != null) {
-			  cartelera.put(ses,s);
-		  }
-	  }
-	  return cartelera;
-  }
   
-  public HashMap<Sesion,Sala> getPeliculas(String nombre){
-	  HashMap<Sesion,Sala>  cartelera = new HashMap<>();
-	  Pelicula p = this.getPelicula(nombre);
-	  if (p == null) {
-		  return cartelera;
-	  }
-	  for (Sala s: salas) {
-		  for(Sesion ses: s.getSesiones()) {
-			  if(ses.getPelicula().equals(p)) {
-				  cartelera.put(ses, s);
-			  }
-		  }
-	  }
-	  return cartelera;
-  }
   /**
    * Hay que ver la impresion como queda
    * @return
@@ -182,60 +136,28 @@ public Cine(String nombre,String direccion){
 	  }
 	  return res;
   }
-  /**
-   * Esto es valido porque no vamos a permitir vender entradas sin precio en el dia
-   * @return
-   */
+  
   public double getRecaudacion() {
 	  double res = 0.0;
-	  int vendidas;
-	  for (Sala s: salas) {
-		  for (Sesion ses: s.getSesiones()) {
-			  vendidas = ses.getButacasVendidas();
-			  res = res + vendidas * this.getEntrada(ses.getFecha()).getPrecioFinal();
-		  }
+	  for (Entrada e: entradas) {
+		  res = res + e.getPrecioFinal();
 	  }
 	  return res;
   }
-  /** Vender entrada antiguo
-   * 
-  public String venderEntrada(int numero, Sesion s) {
-	  Entrada e;
-	  String res;
-	  Sala sala = null;
-	  for (Sala sal: salas) {
-		  if(sal.getSesion(s.getFecha()).equals(s)) {
-			  sala = sal;
-			  break;
-		  }
-	  }
-	  if (sala == null) {
-		  res = "No existe la sesion";
-		  return res;
-	  }
-	  e = this.getEntrada(s.getFecha());
-	  if (e == null) {
-		  res = "No hay entradas para ese dia";
-		  return res;
-	  }
-	  if (s.venderButacas(numero) == false) {
-		  res = "No hay suficientes butacas";
-		  return res;
-	  }
-	  res = "" + s + sala + "\nPrecio: " + numero*e.getPrecioFinal() + "\n";
-	  return res;
-  }
-  **/
   
 	public String venderEntrada(int numero, Sesion s, double precio, double descuento) {
 		Entrada e;
 		String res;
+		Sesion ses;
 		Sala sala = null;
-		double preciofinal=0;
+		double preciofinal = 0;
 		for (Sala sal : salas) {
-			if (sal.getSesion(s.getFecha()).equals(s)) {
-				sala = sal;
-				break;
+			ses = sal.getSesion(s.getFecha());
+			if (ses != null) {
+				if (ses.equals(s)) {
+					sala = sal;
+					break;
+				}
 			}
 		}
 		if (sala == null) {
