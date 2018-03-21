@@ -24,15 +24,5 @@ public class PruebaCine {
 		s3 = cine.crearSesion(d3,p2,sa3.getButacas(),sa3.getButacas(),sa3);
 		s4 = cine.crearSesion(d4,p2,sa3.getButacas(),sa3.getButacas(),sa3);
 		
-		
-		
-		
-		
-		
-		s1 = new Sesion (d1,p1,sa1.getButacas(),sa1.getButacas());
-		s2 = new Sesion (d2,p1,sa2.getButacas(),sa2.getButacas());
-		s3 = new Sesion (d3,p2,sa3.getButacas(),sa3.getButacas());
-		s4 = new Sesion (d4,p2,sa3.getButacas(),sa3.getButacas());
-		
 	}
 }
