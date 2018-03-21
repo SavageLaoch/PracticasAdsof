@@ -192,8 +192,31 @@ public class Cine {
   }
   /** faltan vender entradas y preguntar que tienen los javis**/
   
-  public String venderEntrada(int numero,LocalDate fecha, Pelicula p) {
-	  
+  public String venderEntrada(int numero, Sesion s) {
+	  Entrada e;
+	  String res;
+	  Sala sala = null;
+	  for (Sala sal: salas) {
+		  if(sal.getSesion(s.getFecha()).equals(s)) {
+			  sala = sal;
+			  break;
+		  }
+	  }
+	  if (sala == null) {
+		  res = "No existe la sesion";
+		  return res;
+	  }
+	  e = this.getEntrada(s.getFecha());
+	  if (e == null) {
+		  res = "No hay entradas para ese dia";
+		  return res;
+	  }
+	  if (s.venderButacas(numero) == false) {
+		  res = "No hay suficientes butacas";
+		  return res;
+	  }
+	  res = "" + s + sala + "\nPrecio: " + numero*e.getPrecioFinal() + "\n";
+	  return res;
   }
   
 }
