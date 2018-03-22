@@ -26,6 +26,7 @@ public class PruebaSala {
 		System.out.println("\nProbamos los getters en s y vemos que se hayan anadido bien las sesiones");
 		a = s.getId();
 		b = s.getButacas();
+		System.out.println("Id: " + a + "\nButacas sala: " + b + "\n" );
 		sesiones = s.getSesiones();
 		System.out.println(s + "\n");
 		for (Sesion sesion: sesiones){

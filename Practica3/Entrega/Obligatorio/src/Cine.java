@@ -33,7 +33,7 @@ public Cine(String nombre,String direccion){
    * @param director Director de la pelicula
    * @param anno Anno en el que se estreno la pelicula
    * @param sinopsis Breve resumen de la pelicula
-   * @param geneto Genero de la pelicula
+   * @param genero Genero de la pelicula
    */
   public Pelicula crearPelicula(String titulo,String director,int anno,String sinopsis,Genero genero){
     Pelicula p;
@@ -213,6 +213,10 @@ public Cine(String nombre,String direccion){
 		Sesion ses;
 		Sala sala = null;
 		double preciofinal = 0;
+		if (descuento < 0 || descuento > 100) {
+			res = "Descuento no valido";
+			return res;
+		}
 		for (Sala sal : salas) {
 			ses = sal.getSesion(s.getFecha());
 			if (ses != null) {
