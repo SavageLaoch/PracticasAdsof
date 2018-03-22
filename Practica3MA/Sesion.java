@@ -16,13 +16,12 @@ public class Sesion {
  * Crea un objeto del tipo sesion
  * @param fecha Fecha de la sesion
  * @param pelicula Pelicula de la sesion
- * @param butacasDisponibles Butacas disponibles
  * @param butacasTotales Butacas totales
  */
-  public Sesion(LocalDate fecha, Pelicula pelicula, int butacasDisponibles, int butacasTotales) {
+  public Sesion(LocalDate fecha, Pelicula pelicula, int butacasTotales) {
     this.fecha=fecha;
     this.pelicula=pelicula;
-    this.butacasDisponibles=butacasDisponibles;
+    this.butacasDisponibles=butacasTotales;
     this.butacasTotales=butacasTotales;
   }
 /**

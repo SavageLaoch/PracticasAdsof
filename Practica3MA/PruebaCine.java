@@ -20,13 +20,13 @@ public class PruebaCine {
 		sa1= cine.crearSala(1,200);
 		sa2= cine.crearSala(2,190);
 		sa3= cine.crearSala(3,180);
-		p1 = cine.crearPelicula("Titanic","James Cameron",1997,"And thaaaaaaaaiaaaaaaa will aaalways love youuuuuuuuu",Genero.COMEDIA);
+		p1 = cine.crearPelicula("Titanic","James Cameron",1997,"Un barco que se hunde",Genero.COMEDIA);
 		p2 = cine.crearPelicula("Wolololo","Pedro Balodis",2017,"El dia que una persona fue a clase de Pedro Balodis y no volvio a ser la misma",Genero.TERROR);
-		s1 = cine.crearSesion(d1,p1,sa1.getButacas(),sa1.getButacas(),sa1);
-		s2 = cine.crearSesion(d2,p1,sa2.getButacas(),sa2.getButacas(),sa2);		
-		s3 = cine.crearSesion(d3,p2,sa3.getButacas(),sa3.getButacas(),sa3);		
-		s4 = cine.crearSesion(d4,p2,sa3.getButacas(),sa3.getButacas(),sa3);
-		s5 = new Sesion (d1,p1,200,200);
+		s1 = cine.crearSesion(d1,p1,sa1);
+		s2 = cine.crearSesion(d2,p1,sa2);		
+		s3 = cine.crearSesion(d3,p2,sa3);		
+		s4 = cine.crearSesion(d4,p2,sa3);
+		s5 = new Sesion (d1,p1,200);
 		/**
 		 * Probar getters
 		 */
@@ -56,13 +56,6 @@ public class PruebaCine {
 		System.out.println(cine.venderEntrada(23, s5, 15, 0));
 		
 		/**
-		 * Como ahora estan todas las entradas juntas no es necesario este metodo
-		 */
-		/**System.out.println("\nProbamos la funcion getEntrada: ");
-		System.out.println("Las entradas de este dia cuestan: " + cine.getEntrada(d1).getPrecioFinal());*/
-		
-	
-		/**
 		 * Carteleras y sesiones
 		 */
 		System.out.println("\nObtenemos la cartelera: ");
@@ -82,15 +75,14 @@ public class PruebaCine {
 		 * Eliminar cosas
 		 */
 		
-		System.out.println("Borramos la sala 3 del cine: ");
+		System.out.println("\nBorramos la sala 3 del cine: ");
 		System.out.println(cine.removeSala(3));
-		System.out.println("Intentamos volver a borrar la misma sala para ver cuando falla: ");
+		System.out.println("Intentamos volver a borrar la misma sala para ver que falla: ");
 		System.out.println(cine.removeSala(3));
 		
 		
-		System.out.println("Borramos la pelicula Titanic del cine: ");
+		System.out.println("\nBorramos la pelicula Titanic del cine: ");
 		System.out.println(cine.removePelicula("Titanic"));
-		
 		System.out.println("Borramos la pelicula Titanic del cine sabiendo que no hay peliculas con ese nombre: ");
 		System.out.println(cine.removePelicula("Titanic"));
 		

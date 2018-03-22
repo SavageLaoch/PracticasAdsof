@@ -12,13 +12,13 @@ public class PruebaSala {
 		
 		
 		s = new Sala (1,200);
-		p = new Pelicula ("Titanic","James Cameron",1997,"And thaaaaaaaaiaaaaaaa will aaalways love youuuuuuuuu",Genero.COMEDIA);
+		p = new Pelicula ("Titanic","James Cameron",1997,"Un barco que se hunde",Genero.COMEDIA);
 		d1 = LocalDate.of(1991,3,31);
 		d2 = LocalDate.of(1992,4,16);
 		d3 = LocalDate.of(2000,4,16);
-		s1 = new Sesion (d1,p,s.getButacas(),s.getButacas());
-		s2 = new Sesion (d2,p,s.getButacas(),s.getButacas());
-		s3 = new Sesion (d3,p,s.getButacas(),s.getButacas());
+		s1 = new Sesion (d1,p,s.getButacas());
+		s2 = new Sesion (d2,p,s.getButacas());
+		s3 = new Sesion (d3,p,s.getButacas());
 		System.out.println("Probamos a anadir una sesion\n");
 		System.out.println(s.anyadirSesion(s1));
 		s.anyadirSesion(s2);

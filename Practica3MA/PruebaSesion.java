@@ -16,10 +16,10 @@ public class PruebaSesion{
 /**
  * Generamos una nueva pelicula
  */
-    p1 = new Pelicula ("Titanic","James Cameron",1997,"And thaaaaaaaaiaaaaaaa will aaalways love youuuuuuuuu",Genero.COMEDIA);
+    p1 = new Pelicula ("Titanic","James Cameron",1997,"Un barco que se hunde",Genero.COMEDIA);
     d1 = LocalDate.of(1991,3,31);
-    s1 = new Sesion (d1,p1,200,200);
-    s2 = new Sesion (d1,p1,200,200);
+    s1 = new Sesion (d1,p1,200);
+    s2 = new Sesion (d1,p1,200);
 /**
  * Probamos los getters en la sesion 1    
  */

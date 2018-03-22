@@ -13,7 +13,7 @@ public class PruebaPelicula{
     /**
      * Creamos dos peliculas
      */
-    p1 = new Pelicula ("Titanic","James Cameron",1997,"And thaaaaaaaaiaaaaaaa will aaalways love youuuuuuuuu",Genero.COMEDIA);
+    p1 = new Pelicula ("Titanic","James Cameron",1997,"Un barco que se hunde",Genero.COMEDIA);
     p2 = new Pelicula ("Wolololo","Pedro Balodis",2017,"El dia que una persona fue a clase de Pedro Balodis y no volvio a ser la misma",Genero.TERROR);
     /**
      * Probamos los geters en la pelicula 1 y los imprimimos
