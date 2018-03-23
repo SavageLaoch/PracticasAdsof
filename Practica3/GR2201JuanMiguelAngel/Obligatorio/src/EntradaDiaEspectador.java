@@ -6,6 +6,9 @@ import java.time.LocalDate;
  *
  */
 public class EntradaDiaEspectador extends Entrada{
+/**
+ * Descuento de la entrada
+*/
   private double descuento;
 /**
  * Crea un objeto del tipo EntradaDiaEspectador

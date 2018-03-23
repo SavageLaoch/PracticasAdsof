@@ -5,7 +5,9 @@ import java.time.LocalDate;
  *
  */
 public class EntradaDescuento extends Entrada{
-	
+	/**
+	 * Tipo de descuento de la entrada
+	 */
 	private Descuento tipo;
 /**
  * Constructor de una entrada con descuento

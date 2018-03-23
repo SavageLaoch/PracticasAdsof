@@ -6,10 +6,21 @@ import java.time.LocalDate;
  *
  */
 public class Sesion {
-
+  /**
+   * Fecha de la sesion
+   */
   private LocalDate fecha;
+  /**
+   * Pelicula de la sesion
+   */
   private Pelicula pelicula;
+  /**
+   * Butacas disponibles de la sesion
+   */
   private int butacasDisponibles;
+  /**
+   * Butacas totales de la sesion
+   */
   private int butacasTotales;
 
 /**
@@ -36,7 +47,7 @@ public class Sesion {
   public Pelicula getPelicula() {return pelicula;}
 /**
  * Devuelve las butacas disponibles
- * @return Butacas disponibles 
+ * @return Butacas disponibles
  */
   public int getButacasDisponibles() {return butacasDisponibles;}
 /**
@@ -45,7 +56,7 @@ public class Sesion {
  */
   public int getButacasTotales() {return butacasTotales;}
 /**
- * Cambia las butacas disponibles 
+ * Cambia las butacas disponibles
  * @param butacasDisponibles Nuevas butacas disponibles
  * @return true si se ha podido cambiar fakse si no
  */
@@ -57,7 +68,7 @@ public class Sesion {
 	  return true;
   }
 /**
- * Vende las butacas 
+ * Vende las butacas
  * @param butacasVendidas Butacas a vender
  * @return true si se ha podido hacer false si no
  */
@@ -72,7 +83,7 @@ public class Sesion {
     }
   }
 /**
- * Devuelve el numero de butacas vendidas  
+ * Devuelve el numero de butacas vendidas
  * @return Butacas vendidas
  */
   public int getButacasVendidas() {

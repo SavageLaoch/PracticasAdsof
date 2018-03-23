@@ -6,9 +6,17 @@ import java.time.LocalDate;
  *
  */
 public class Sala{
-
+  /**
+   * Id de la sala
+   */
     private final int id;
+    /**
+     * Butacas de la sala
+     */
     private int butacas;
+    /**
+     * Sesiones de la sala
+     */
     private List<Sesion> sesiones;
 /**
  * Crea un objeto del tipo sala. Dentro de la sala crearemos el array de sesiones vacio
@@ -84,7 +92,7 @@ public class Sala{
     	return true;
     }
 /**
- * Convierte una sala a string. Imprime su id y sus butacas    
+ * Convierte una sala a string. Imprime su id y sus butacas
  */
     public String toString(){
         String s;

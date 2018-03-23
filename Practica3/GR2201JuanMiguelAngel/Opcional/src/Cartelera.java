@@ -8,9 +8,12 @@ public class Cartelera{
 
 	private List<Pelicula> peliculas;
 /**
- * Constructor de la clase cartelera	
+ * Constructor de la clase cartelera
  */
 	public Cartelera() {
+	/**
+ 		* Peliculas de la cartelera
+ 	*/
 		peliculas = new ArrayList<>();
 	}
 /**
@@ -21,7 +24,7 @@ public class Cartelera{
 		return peliculas;
 	}
 /**
- * Anyade una pelicula a la  cartelera 
+ * Anyade una pelicula a la  cartelera
  * @param p Pelicula a anyadir
  */
 	public void addPelicula(Pelicula p) {

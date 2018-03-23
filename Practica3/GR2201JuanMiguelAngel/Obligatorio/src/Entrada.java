@@ -1,12 +1,17 @@
 import java.time.LocalDate;
 /**
- * Esta clase implementa las entradas del cine 
+ * Esta clase implementa las entradas del cine
  * @author Miguel Angel Sanchez y Juan Velasco
  *
  */
 public class Entrada{
-
+/**
+ * Precio base de la entrada
+ */
   private double precio;
+/**
+ * Fecha de la entrada
+ */
   private LocalDate fecha;
 /**
  * Crea un nuevo objeto de tipo entrada
@@ -18,7 +23,7 @@ public class Entrada{
     this.fecha = fecha;
   };
 /**
- * Devulve el precio de la entrada sin descuento  
+ * Devulve el precio de la entrada sin descuento
  * @return Precio de la entrada (sin descuento)
  */
   public double getPrecio() {return this.precio;}

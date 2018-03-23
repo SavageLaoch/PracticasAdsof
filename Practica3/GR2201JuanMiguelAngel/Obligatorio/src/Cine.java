@@ -7,11 +7,25 @@ import java.util.*;
  *
  */
 public class Cine {
-
+/**
+ * Nombre del cine
+ */
   private String nombre;
+/**
+ * Direccion del cine
+ */
   private String direccion;
+/**
+ * Peliculas del cine
+ */
   private List<Pelicula> peliculas;
+/**
+ * Salas del cine
+ */
   private List<Sala> salas;
+/**
+ * Entradas vendidas del cine
+ */
   private List<Entrada> entradas;
 
   /**
@@ -41,7 +55,7 @@ public Cine(String nombre,String direccion){
     peliculas.add(p);
     return p;
   }
-  
+
   /**
    * Crea una sala y la anade al cine.
    * @param id Id de la sala
@@ -59,7 +73,7 @@ public Cine(String nombre,String direccion){
     salas.add(s);
     return s;
   }
-  
+
   /**
    * Crea una sesion y la anade al cine
    * @param fecha Fecha de la sesion
@@ -75,19 +89,19 @@ public Cine(String nombre,String direccion){
     };
     return s;
   }
-  
+
   /**
    * Obtiene el nombre del cine
    * @return Nombre del cine
    */
   public String getNombre() {return nombre;}
-  
+
   /**
    * Obtiene la direccion del cine
    * @return Direccion del cine
    */
   public String getDireccion() {return direccion;}
-  
+
   /**
    * Obtiene la sala con un id determinado
    * @param id Id de la sala a obtener
@@ -101,7 +115,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return null;
   }
-  
+
   /**
    * Obtiene una pelicula con un nombre determinado
    * @param nombre Nombre de la pelicula
@@ -115,7 +129,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return null;
   }
-  
+
   /**
    * Borra una sala del cine
    * @param id Id de la sala a borrar
@@ -130,7 +144,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return false;
   }
-  
+
   /**
    * Borra una pelicula del cine
    * @param nombre Nombre de la pelicula a borrar
@@ -138,7 +152,7 @@ public Cine(String nombre,String direccion){
    */
   public int removePelicula(String nombre) {
 	  int res = 0;
-	  
+
 	  for (Pelicula p: peliculas) {
 		  if (p.getTitulo().equals(nombre)) {
 			  for (Sala s: salas) {
@@ -159,12 +173,12 @@ public Cine(String nombre,String direccion){
 	  }
 	  return -1;
   }
-  
-  
+
+
   /**
    * Obtiene la cartelera del cine
    * @return string con todas las peliculas que hay en el cine
-   */  
+   */
   public String getCartelera() {
 	  String res = "";
 	  for (Pelicula p: peliculas) {
@@ -172,7 +186,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return res;
   }
-  
+
   /**
    * Obtiene las sesiones del cina
    * @return string con alguna informacion de cada sesion
@@ -186,7 +200,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return res;
   }
-  
+
   /**
    * Obtiene el dinero recaudado con las entradas vendidas
    * @return Dinero recaudado
@@ -198,7 +212,7 @@ public Cine(String nombre,String direccion){
 	  }
 	  return res;
   }
-  
+
   	/**
   	 * Crea entradas y las anade al array de entradas del cine
   	 * @param numero Numero de entradas que se venden
@@ -252,6 +266,6 @@ public Cine(String nombre,String direccion){
 		res = "Pelicula: " + s.getPelicula().getTitulo() + "\nFecha: " + s.getFecha() + "\nSala: " +  sala.getId() + "\nNumero de butacas vendidas: " + numero +  "\nPrecio por butaca: " + preciofinal + "\nPrecio total: " + numero * preciofinal;
 		return res;
 	}
-  
-  
+
+
 }

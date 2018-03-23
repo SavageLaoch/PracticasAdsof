@@ -4,14 +4,28 @@
  *
  */
 public class Pelicula{
-
+  /**
+   * Titulo de la pelicula
+   */
   private String titulo;
+  /**
+   * Nombre del director
+   */
   private String director;
+  /**
+   * Anyo deestrno
+   */
   private int anno;
+  /**
+   * Sinopsis de la pelicula
+   */
   private String sinopsis;
+  /**
+   * Genero de la pelicula
+   */
   private Genero genero;
 /**
- * Constructor de la clase pelicula 
+ * Constructor de la clase pelicula
  * @param titulo Titulo de la peliucla
  * @param director Director de la pelicula
  * @param anno Annio de estreno de la pelicula
