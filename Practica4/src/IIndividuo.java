@@ -1,10 +1,10 @@
 import java.util.*;
 
-public interface Individuo {
+public interface IIndividuo {
 	
 	
-	public Nodo getExpresion();
-	public void setExpresion(Nodo expresion);	
+	public INodo getExpresion();
+	public void setExpresion(INodo expresion);	
 	public double getFitness();
 	public void setFitness(double fitness);	
 	public void crearIndividuoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones);
