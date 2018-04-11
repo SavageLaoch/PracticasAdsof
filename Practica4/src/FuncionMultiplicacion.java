@@ -1,8 +1,8 @@
 
 public class FuncionMultiplicacion extends Funcion{
 
-	public FuncionMultiplicacion(String raiz) {
-		super(raiz);
+	public FuncionMultiplicacion(String raiz,int numArg) {
+		super(raiz,numArg);
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class FuncionMultiplicacion extends Funcion{
 
 	@Override
 	public INodo copy() {
-		FuncionMultiplicacion copia = new FuncionMultiplicacion(this.getRaiz());
+		FuncionMultiplicacion copia = new FuncionMultiplicacion(this.getRaiz(),this.getNumArg());
 		for(INodo n: this.getDescendientes()) {
 			copia.incluirDescendiente(n.copy());
 		}

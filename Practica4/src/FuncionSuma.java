@@ -1,8 +1,8 @@
 
 public class FuncionSuma extends Funcion{
 
-	public FuncionSuma(String raiz) {
-		super(raiz);
+	public FuncionSuma(String raiz,int numArg) {
+		super(raiz,numArg);
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class FuncionSuma extends Funcion{
 
 	@Override
 	public INodo copy() {
-		FuncionSuma copia = new FuncionSuma(this.getRaiz());
+		FuncionSuma copia = new FuncionSuma(this.getRaiz(),this.getNumArg());
 		for(INodo n: this.getDescendientes()) {
 			copia.incluirDescendiente(n.copy());
 		}

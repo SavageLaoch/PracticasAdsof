@@ -1,10 +1,15 @@
 
 public abstract class Funcion extends Nodo implements INodo {
+	private int numArg;
 	
-	public Funcion(String raiz) {
+	public Funcion(String raiz,int numArg) {
 		super(raiz);
+		this.numArg = numArg;
 	}
-
+	
+	public int getNumArg() {
+		return numArg;
+	}
 	public abstract double calcular();
 	
 	public abstract INodo copy();
