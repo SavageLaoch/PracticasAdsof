@@ -26,5 +26,9 @@ public abstract class Nodo implements INodo {
 	public abstract double calcular();
 	
 	public abstract INodo copy();
+	
+	public String toString() {
+		return "" + raiz + "";
+	}
 
 }

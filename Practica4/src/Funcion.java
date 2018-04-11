@@ -1,44 +1,22 @@
-import java.util.*;
 
-public class Funcion implements Nodo {
+public abstract class Funcion extends Nodo implements INodo {
 	
-	private String raiz;
-	private List<Nodo> descendientes;
-	private int operandos;
-	
-	public Funcion(String raiz, int operandos) {
-		super();
-		this.raiz = raiz;
-		this.descendientes = new ArrayList<Nodo>();
-		this.operandos = operandos;
+	public Funcion(String raiz) {
+		super(raiz);
 	}
+
+	public abstract double calcular();
 	
-	public String getRaiz() {
-		return raiz;
-	}
+	public abstract INodo copy();
 	
-	public List<Nodo> getDescendientes() {
-		return descendientes;
-	}
-	
-	public int getOperandos() {
-		return operandos;
-	}
-	
-	public void incluirDescendiente(Nodo nodo) {
-		descendientes.add(nodo);
-	}
-	
-	/*Implementar*/
-	public double calcular() {
-		
-	}
-	
-	public Nodo copy() {
-		Nodo x = new Funcion(this.raiz, this.operandos);
-		for (Nodo desc:descendientes){
-			x.incluirDescendiente(desc);
+	public String toString() {
+		String s = "";
+		for(INodo n: this.getDescendientes()) {
+			s = s + n.toString();
 		}
-		return x;
+		for(int i = 1; i < this.getDescendientes().size();i++) {
+			s = this.getRaiz() + " " + s;
+		}
+		return "(" + s + ")"; 
 	}
 }
