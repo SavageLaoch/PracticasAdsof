@@ -25,11 +25,11 @@ public abstract class Funcion extends Nodo implements INodo {
 	public String toString() {
 		String s = "";
 		for(INodo n: this.getDescendientes()) {
-			s = s + n.toString();
+			s = s + " " + n.toString();
 		}
 		for(int i = 1; i < this.getDescendientes().size();i++) {
 			s = this.getRaiz() + " " + s;
 		}
-		return "(" + s + ")"; 
+		return "( " + s + " )"; 
 	}
 }
