@@ -10,6 +10,14 @@ public abstract class Funcion extends Nodo implements INodo {
 	public int getNumArg() {
 		return numArg;
 	}
+	
+	public void incluirDescendiente(INodo INodo) {
+		if (this.getDescendientes().size() > numArg) {
+			return;
+		}
+		super.incluirDescendiente(INodo);
+	}
+	
 	public abstract double calcular();
 	
 	public abstract INodo copy();
