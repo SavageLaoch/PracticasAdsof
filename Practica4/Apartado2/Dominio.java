@@ -72,7 +72,7 @@ public abstract class Dominio implements IDominio {
 	public double calcularFitness(IIndividuo individuo) {
 		double resultado = 0;
 		for(double valor: valores.keySet()) {
-			System.out.println("Valor: " + valor + " <-> " + "Rdo estimado: " + valores.get(valor) + " <-> " + "Rdo real: " + individuo.calcularExpresion(valor));
+			System.out.println("Valor: " + valor + " <-> " + "Rdo estimado: " + valores.get(valor) + " <-> " + "Rdo real: " + individuo.calcularExpresion(valores.get(valor)));
 			if((individuo.calcularExpresion(valor) - valores.get(valor)) <= 1 && (individuo.calcularExpresion(valor) - valores.get(valor)) >= -1 ) {
 				resultado = resultado + 1;
 			}

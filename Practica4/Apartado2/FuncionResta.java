@@ -12,9 +12,10 @@ public class FuncionResta extends Funcion{
 		for(INodo n: this.getDescendientes()) {
 			if (i == 0) {
 				res = n.calcular();
+			}else {
+				res = res - n.calcular();
 			}
 			i = i + 1;
-			res = res - n.calcular();
 		}
 		return res;
 	}
@@ -35,9 +36,10 @@ public class FuncionResta extends Funcion{
 		for(INodo n: this.getDescendientes()) {
 			if (i == 0) {
 				res = n.calcular(x);
+			}else {
+				res = res - n.calcular(x);
 			}
 			i = i + 1;
-			res = res - n.calcular(x);
 		}
 		return res;
 	}
