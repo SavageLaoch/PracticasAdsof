@@ -8,7 +8,12 @@ public class FuncionResta extends Funcion{
 	@Override
 	public double calcular() {
 		double res = 0;
+		int i = 0;
 		for(INodo n: this.getDescendientes()) {
+			if (i == 0) {
+				res = n.calcular();
+			}
+			i = i + 1;
 			res = res - n.calcular();
 		}
 		return res;
@@ -21,6 +26,20 @@ public class FuncionResta extends Funcion{
 			copia.incluirDescendiente(n.copy());
 		}
 		return copia;
+	}
+
+	@Override
+	public double calcular(double x) {
+		double res = 0;
+		int i = 0;
+		for(INodo n: this.getDescendientes()) {
+			if (i == 0) {
+				res = n.calcular(x);
+			}
+			i = i + 1;
+			res = res - n.calcular(x);
+		}
+		return res;
 	}
 	
 }

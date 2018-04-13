@@ -36,6 +36,10 @@ public class Individuo implements IIndividuo {
 	public double calcularExpresion() {
 		return expresion.calcular();
 	}
+	
+	public double calcularExpresion(double x) {
+		return expresion.calcular(x);
+	}
 
 	@Override
 	public int getNumeroNodos() {

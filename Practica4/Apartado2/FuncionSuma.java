@@ -22,5 +22,14 @@ public class FuncionSuma extends Funcion{
 		}
 		return copia;
 	}
+
+	@Override
+	public double calcular(double x) {
+		double res = 0;
+		for(INodo n: this.getDescendientes()) {
+			res = res + n.calcular(x);
+		}
+		return res;
+	}
 	
 }

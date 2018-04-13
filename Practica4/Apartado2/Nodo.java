@@ -25,6 +25,8 @@ public abstract class Nodo implements INodo {
 	/*En el caso de un Terminal, calcular() devuelve un valor determinado*/
 	public abstract double calcular();
 	
+	public abstract double calcular(double x);
+	
 	public abstract INodo copy();
 	
 	public String toString() {

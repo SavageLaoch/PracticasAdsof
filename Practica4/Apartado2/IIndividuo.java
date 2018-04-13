@@ -9,6 +9,7 @@ public interface IIndividuo {
 	public void setFitness(double fitness);	
 	public void crearIndividuoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones);
 	public double calcularExpresion();
+	public double calcularExpresion(double x);
 	public int getNumeroNodos();
 	public void writeIndividuo();
 }

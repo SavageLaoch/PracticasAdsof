@@ -7,7 +7,7 @@ public class FuncionMultiplicacion extends Funcion{
 
 	@Override
 	public double calcular() {
-		double res = 0;
+		double res = 1;
 		for(INodo n: this.getDescendientes()) {
 			res = res * n.calcular();
 		}
@@ -21,6 +21,15 @@ public class FuncionMultiplicacion extends Funcion{
 			copia.incluirDescendiente(n.copy());
 		}
 		return copia;
+	}
+
+	@Override
+	public double calcular(double x) {
+		double res = 1;
+		for(INodo n: this.getDescendientes()) {
+			res = res * n.calcular(x);
+		}
+		return res;
 	}
 	
 }
