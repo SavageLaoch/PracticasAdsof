@@ -24,8 +24,10 @@ public class TesterLecturaYFitness {
 		indiv.setExpresion(resta);
 		System.out.println();
 		System.out.println("INDIVIDUO");
+		indiv.etiquetaNodos();
 		indiv.writeIndividuo();
 		System.out.println();
+		
 		fitness = domAritm.calcularFitness(indiv);
 		System.out.println("\nFITNESS= "+fitness);
 		}

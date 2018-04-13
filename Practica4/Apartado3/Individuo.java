@@ -50,5 +50,10 @@ public class Individuo implements IIndividuo {
 	public void writeIndividuo() {
 		System.out.println("Expresion: " + expresion.toString());
 	}
+	
+	@Override
+	public void etiquetaNodos() {
+		expresion.etiquetar(0);
+	}
 
 }

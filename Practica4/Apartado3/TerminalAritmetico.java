@@ -9,4 +9,5 @@ public class TerminalAritmetico extends Terminal{
 		Terminal t = new TerminalAritmetico(this.getRaiz());
 		return t;
 	}
+
 }

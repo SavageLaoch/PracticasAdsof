@@ -9,5 +9,8 @@ public interface INodo {
 	public double calcular();
 	public double calcular(double x);
 	public INodo copy();
+	public int etiquetar(int etiqueta);
+	public int getEtiqueta();
+	public INodo getNodoEtiqueta(int etiqueta);
 }
 
