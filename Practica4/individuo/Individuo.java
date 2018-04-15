@@ -61,4 +61,10 @@ public class Individuo implements IIndividuo {
 		expresion.etiquetar(0);
 	}
 
+	@Override
+	public int totalNodos() {
+		return expresion.numNodos();
+		
+	}
+
 }

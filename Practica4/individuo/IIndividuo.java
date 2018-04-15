@@ -18,4 +18,5 @@ public interface IIndividuo {
 	public int getNumeroNodos();
 	public void writeIndividuo();
 	public void etiquetaNodos();
+	public int totalNodos();
 }

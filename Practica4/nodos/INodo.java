@@ -13,5 +13,7 @@ public interface INodo {
 	public int etiquetar(int etiqueta);
 	public int getEtiqueta();
 	public INodo getNodoEtiqueta(int etiqueta);
+	public boolean intercambiarNodo(int etiqueta, INodo nnodo);
+	public int numNodos();
 }
 

@@ -36,6 +36,14 @@ public abstract class Nodo implements INodo {
 		return "" + raiz + "";
 	}
 	
+	public int numNodos() {
+		int num = 0;
+		for(INodo desc: descendientes) {
+			num = num + desc.numNodos();
+		}
+		return num + 1;
+	}
+	
 	public int etiquetar(int etiqueta) {
 		this.etiqueta=etiqueta;
 		int res = etiqueta;
@@ -62,5 +70,27 @@ public abstract class Nodo implements INodo {
 		}
 		
 		return null;
+	}
+	
+	public boolean intercambiarNodo(int etiqueta,INodo nnodo) {
+		INodo pivote;
+		int i;
+		int cambio = -2;
+		if (this.etiqueta == etiqueta) {
+			return true;
+		}
+		for(i = 0;i < descendientes.size();i++) {
+			pivote = this.descendientes.get(i);
+			if(pivote.intercambiarNodo(etiqueta, nnodo)) {
+				cambio = i;
+				break;
+			}
+		}
+		
+		if(cambio > 0) {
+			this.descendientes.remove(cambio);
+			this.descendientes.add(cambio, nnodo);
+		}
+		return false;
 	}
 }

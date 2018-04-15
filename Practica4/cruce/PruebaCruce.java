@@ -14,32 +14,47 @@ public class PruebaCruce {
 		INodo copian1,copian2,ci1,ci2;
 		IIndividuo descendiente1,descendiente2;
 		List<IIndividuo> descendientes = new ArrayList<>();
-		nodo1 = (int) Math.floor(Math.random() * 10);
-		nodo2 = (int) Math.floor(Math.random() * 10);
+		nodo1 = (int) Math.floor(Math.random() * i1.totalNodos());
+		nodo2 = (int) Math.floor(Math.random() * i2.totalNodos());
 		System.out.print("Punto de cruce del progenitor 1: " + nodo1 + "\n");
 		System.out.print("Punto de cruce del progenitor 2: " + nodo2 + "\n");
-		n1 = i1.getExpresion().getNodoEtiqueta(nodo1);
-		n2 = i2.getExpresion().getNodoEtiqueta(nodo2);
-		if(n1 == i1.getExpresion() && n2 == i2.getExpresion()) {
+		if(nodo1 == 0 && nodo2 == 0) {
 			throw new CruceNuloException();
 		}
-		copian1 = n1.copy();
-		copian2 = n2.copy();
+		
+		
 		ci1 = i1.getExpresion();
 		ci2 = i2.getExpresion();
-		n1 = ci1.getNodoEtiqueta(nodo1);
-		n2 = ci2.getNodoEtiqueta(nodo2);
-		n1 = copian2;
-		n2 = copian1;
-	
+		
 		descendiente1 = new Individuo();
-		descendiente1.setExpresion(ci1);
+		descendiente1.setExpresion(ci1.copy());
+		descendiente1.setFitness(i1.getFitness());
+		descendiente1.etiquetaNodos();
+		
 		
 		descendiente2 = new Individuo();
-		descendiente2.setExpresion(ci2);
+		descendiente2.setExpresion(ci2.copy());
+		descendiente2.setFitness(i2.getFitness());
+		descendiente2.etiquetaNodos();
+		
+		n1 = descendiente1.getExpresion().getNodoEtiqueta(nodo1);
+		n2 = descendiente2.getExpresion().getNodoEtiqueta(nodo2);
+
+		copian1 = n1.copy();
+		copian2 = n2.copy();
+		if(nodo1 == 0) {
+			descendiente1.setExpresion(ci2.copy());
+		}else {
+			descendiente1.getExpresion().intercambiarNodo(nodo1, copian2);
+		}
+		if(nodo2 == 0) {
+			descendiente2.setExpresion(ci1.copy());
+		}else {
+			descendiente2.getExpresion().intercambiarNodo(nodo2, copian1);
+		}
+		
 		descendientes.add(descendiente1);
 		descendientes.add(descendiente2);
-		
 		return descendientes;
 	}
 }
