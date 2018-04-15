@@ -1,24 +1,33 @@
 package algoritmo;
-
 import dominio.*;
 import individuo.*;
-
 import java.util.*;
 import terminal.*;
 import funcion.*;
 import exceptions.*;
 
-
+/**
+ * Clase Algoritmo
+ * @author Juan Velasco y Miguel Angel Sanchez
+ *
+ */
 public class Algoritmo implements IAlgoritmo {
 	
 	private Dominio dominio;
 	private List<Individuo> poblacion;
 	
+	/**
+	 * Crea un algoritmo
+	 */
 	public Algoritmo() {
 		dominio = new DominioAritmetico();
 		poblacion = new ArrayList<>();
 	}
 	
+	/**
+	 * Define el conjunto de terminales del dominio del algoritmo
+	 * @param terminales Conjunto de terminales a definir
+	 */
 	@Override
 	public void defineConjuntoTerminales(List<Terminal> terminales) {
 		String[] raices = new String[terminales.size()];
@@ -27,7 +36,11 @@ public class Algoritmo implements IAlgoritmo {
 		}
 		dominio.definirConjuntoTerminales(raices);
 	}
-
+	
+	/**
+	 * Define el conjunto de funciones del dominio del algoritmo
+	 * @param funciones Conjunto de funciones a definir
+	 */
 	@Override
 	public void defineConjuntoFunciones(List<Funcion> funciones) throws ArgsDistintosFuncionesException {
 		int[] argumentos = new int[funciones.size()];

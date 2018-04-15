@@ -13,18 +13,31 @@ import individuo.IIndividuo;
 import terminal.Terminal;
 import terminal.TerminalAritmetico;
 
+/**
+ * Clase Dominio
+ * @author Juan Velasco y Miguel Angel Sanchez
+ *
+ */
 public abstract class Dominio implements IDominio {
 	
 	private List<Terminal> conjuntoTerminales;
 	private List<Funcion> conjuntoFunciones;
 	private Map<Double,Double> valores;
 	
+	/**
+	 * Crea un dominio
+	 */
 	public Dominio() {
 		conjuntoTerminales = new ArrayList<Terminal>();
 		conjuntoFunciones = new ArrayList<Funcion>();
 		valores = new HashMap<>();
 	}	
 	
+	/**
+	 * Define el conjunto de terminales del dominio
+	 * @param terminales Conjunto de terminales del dominio
+	 * @return Lista con los terminales del dominio
+	 */
 	public List<Terminal> definirConjuntoTerminales(String... terminales){
 		for (String s:terminales) {
 			Terminal x = new TerminalAritmetico(s);
@@ -33,6 +46,12 @@ public abstract class Dominio implements IDominio {
 		return conjuntoTerminales;
 	}
 	
+	/**
+	 * Define el conjunto de funciones del dominio
+	 * @param argumentos Argumentos de las funciones
+	 * @param funciones Conjunto de funciones del dominio
+	 * @return Lista con las funciones del dominio
+	 */
 	public List<Funcion> definirConjuntoFunciones(int[] argumentos, String... funciones) throws ArgsDistintosFuncionesException{
 		if (funciones.length != argumentos.length) {
 			ArgsDistintosFuncionesException e = new ArgsDistintosFuncionesException();
@@ -58,6 +77,10 @@ public abstract class Dominio implements IDominio {
 		return conjuntoFunciones;
 	}
 	
+	/**
+	 * Define los valores de prueba a partir del fichero
+	 * @param ficheroDatos fichero desde el que se leen los valores
+	 */
 	public void definirValoresPrueba(String ficheroDatos) throws FileNotFoundException, IOException{
 		String linea;
 		double x = 0,y = 0;
@@ -79,6 +102,11 @@ public abstract class Dominio implements IDominio {
 		}
 		buffer.close();
 	}
+	
+	/**
+	 * Calcula el fitness
+	 * @param individuo 
+	 */
 	public double calcularFitness(IIndividuo individuo) {
 		double resultado = 0;
 		for(double valor: valores.keySet()) {
