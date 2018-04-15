@@ -61,7 +61,9 @@ public class Individuo implements IIndividuo {
 	 */
 	@Override
 	public void crearIndividuoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones) {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < profundidad;i++) {
+			
+		}
 
 	}
 	

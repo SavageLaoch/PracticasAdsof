@@ -13,6 +13,8 @@ public interface IDominio {
 	
 	public List<Terminal> definirConjuntoTerminales(String... terminales);
 	public List<Funcion> definirConjuntoFunciones(int[] argumentos, String... funciones) throws ArgsDistintosFuncionesException;
+	public List<Terminal> getConjuntoTerminales();
+	public List<Funcion> getConjuntoFunciones();
 	public void definirValoresPrueba(String ficheroDatos) throws FileNotFoundException, IOException;
 	public double calcularFitness(IIndividuo individuo);
 }

@@ -55,7 +55,12 @@ public class Algoritmo implements IAlgoritmo {
 
 	@Override
 	public void crearPoblacion() {
-		// TODO Auto-generated method stub
+		Individuo individuo;
+		for(int i = 0; i < 20;i++) {
+			individuo = new Individuo();
+			individuo.crearIndividuoAleatorio(8,dominio.getConjuntoTerminales(),dominio.getConjuntoFunciones());
+			poblacion.add(individuo);
+		}
 
 	}
 

@@ -77,6 +77,12 @@ public abstract class Dominio implements IDominio {
 		return conjuntoFunciones;
 	}
 	
+	public List<Terminal> getConjuntoTerminales(){
+		return conjuntoTerminales;
+	}
+	public List<Funcion> getConjuntoFunciones(){
+		return conjuntoFunciones;
+	}
 	/**
 	 * Define los valores de prueba a partir del fichero
 	 * @param ficheroDatos fichero desde el que se leen los valores
