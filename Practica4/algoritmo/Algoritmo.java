@@ -2,6 +2,8 @@ package algoritmo;
 import dominio.*;
 import individuo.*;
 import java.util.*;
+
+import cruce.PruebaCruce;
 import terminal.*;
 import funcion.*;
 import exceptions.*;
@@ -13,8 +15,8 @@ import exceptions.*;
  */
 public class Algoritmo implements IAlgoritmo {
 	
-	private Dominio dominio;
-	private List<Individuo> poblacion;
+	private IDominio dominio;
+	private List<IIndividuo> poblacion;
 	
 	/**
 	 * Crea un algoritmo
@@ -65,21 +67,91 @@ public class Algoritmo implements IAlgoritmo {
 	}
 
 	@Override
-	public List<IIndividuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Individuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException {
+		PruebaCruce cruce = new PruebaCruce();
+		List<Individuo> cruces = new ArrayList<>();
+		for(int i = 0; i < 9; i++) {
+			cruces.add((Individuo) cruce.cruce(prog1, prog2));
+		}
+		return cruces;
 	}
-
+	/*^poblaciones de 20: pasan 2 directos (elite + otro)*/
 	@Override
 	public void crearNuevaPoblacion() {
-		// TODO Auto-generated method stub
+		IIndividuo elite,prog1,prog2;
+		int directo,paso;
+		List<IIndividuo> nuevaPoblacion = new ArrayList<>();
+		List<IIndividuo> torneo = new ArrayList<>();
+		elite = poblacion.get(0);
+		for(IIndividuo cmp: poblacion) {
+			if(dominio.calcularFitness(cmp) > dominio.calcularFitness(elite)) {
+				elite = cmp;
+			}
+		}
+		
+		directo = (int) Math.floor(Math.random() * poblacion.size());
+		while(poblacion.indexOf(elite) == directo) {
+			directo = (int) Math.floor(Math.random() * poblacion.size());
+		}
+		/*Metemos al elite y al que va directo*/
+		nuevaPoblacion.add(elite);
+		nuevaPoblacion.add(poblacion.get(directo));
+		/* torneo*/
+		while(torneo.size() < 4) {
+			paso = (int) Math.floor(Math.random() * poblacion.size());
+			if(! torneo.contains(poblacion.get(paso))) {
+				torneo.add(poblacion.get(paso));
+			}
+		}
+		prog1 = torneo.get(0);
+		prog2 = torneo.get(1);
+		for(IIndividuo cmp: torneo) {
+			if(dominio.calcularFitness(cmp) > dominio.calcularFitness(prog1)) {
+				if(dominio.calcularFitness(prog1) > dominio.calcularFitness(prog2)) {
+					prog2 = prog1;
+					prog1 = cmp;
+				}else {
+					prog1 = cmp;
+				}
+			}else if(dominio.calcularFitness(cmp) > dominio.calcularFitness(prog2)) {
+				prog2 = cmp;
+			}
+		}
+		while (true) {
+			try {
+				nuevaPoblacion.addAll(this.cruce(prog1, prog2));
+				break;
+			} catch (CruceNuloException e) {
+
+			}
+		}
+		
+		poblacion = nuevaPoblacion;
 
 	}
-
+	
+	/* gen maxima 10, fitness minimo 10*/
 	@Override
 	public void ejecutar(IDominio dominio) {
-		// TODO Auto-generated method stub
-
+		this.dominio = dominio;
+		this.crearNuevaPoblacion();
+		for(int i = 0; i < 10; i++) {
+			for(IIndividuo in: poblacion) {
+				dominio.calcularFitness(in);
+			}
+			for(IIndividuo in:poblacion) {
+				if(in.getFitness() >= 10) {
+					System.out.println("Poblacion: \n" + poblacion);
+					return;
+				}
+			}
+			this.crearNuevaPoblacion();
+		}
+		for(IIndividuo in: poblacion) {
+			dominio.calcularFitness(in);
+		}
+		System.out.println("Poblacion: \n" + poblacion);
+		return;
 	}
 
 }

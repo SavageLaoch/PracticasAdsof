@@ -121,6 +121,7 @@ public abstract class Dominio implements IDominio {
 				resultado = resultado + 1;
 			}
 		}
+		individuo.setFitness(resultado);
 		return resultado;
 	}
 }

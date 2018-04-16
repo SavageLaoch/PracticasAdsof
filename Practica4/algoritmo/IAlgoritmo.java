@@ -13,7 +13,7 @@ public interface IAlgoritmo {
 
 	public void crearPoblacion();
 
-	public List<IIndividuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException;
+	public List<Individuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException;
 
 	public void crearNuevaPoblacion();
 
