@@ -79,6 +79,7 @@ public class Individuo implements IIndividuo {
 	@Override
 	public void crearIndividuoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones) {
 		this.expresion = crearNodoAleatorio(profundidad,terminales,funciones);
+		this.etiquetaNodos();
 	}
 	
 	/**
@@ -129,6 +130,10 @@ public class Individuo implements IIndividuo {
 	public int totalNodos() {
 		return expresion.numNodos();
 		
+	}
+	
+	public String toString() {
+		return "Individuo: " + expresion + " Fitness: " +  fitness;
 	}
 
 }

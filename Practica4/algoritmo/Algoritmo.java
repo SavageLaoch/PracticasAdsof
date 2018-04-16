@@ -1,6 +1,9 @@
 package algoritmo;
 import dominio.*;
 import individuo.*;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 import cruce.PruebaCruce;
@@ -60,18 +63,18 @@ public class Algoritmo implements IAlgoritmo {
 		Individuo individuo;
 		for(int i = 0; i < 20;i++) {
 			individuo = new Individuo();
-			individuo.crearIndividuoAleatorio(8,dominio.getConjuntoTerminales(),dominio.getConjuntoFunciones());
+			individuo.crearIndividuoAleatorio(2,dominio.getConjuntoTerminales(),dominio.getConjuntoFunciones());
 			poblacion.add(individuo);
 		}
 
 	}
 
 	@Override
-	public List<Individuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException {
+	public List<IIndividuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException {
 		PruebaCruce cruce = new PruebaCruce();
-		List<Individuo> cruces = new ArrayList<>();
+		List<IIndividuo> cruces = new ArrayList<>();
 		for(int i = 0; i < 9; i++) {
-			cruces.add((Individuo) cruce.cruce(prog1, prog2));
+			cruces.addAll(cruce.cruce(prog1, prog2));
 		}
 		return cruces;
 	}
@@ -134,14 +137,21 @@ public class Algoritmo implements IAlgoritmo {
 	@Override
 	public void ejecutar(IDominio dominio) {
 		this.dominio = dominio;
-		this.crearNuevaPoblacion();
+		this.crearPoblacion();
+		try {
+			dominio.definirValoresPrueba("valoresReducido.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		for(int i = 0; i < 10; i++) {
 			for(IIndividuo in: poblacion) {
 				dominio.calcularFitness(in);
 			}
 			for(IIndividuo in:poblacion) {
-				if(in.getFitness() >= 10) {
-					System.out.println("Poblacion: \n" + poblacion);
+				if(in.getFitness() >= 4) {
+					System.out.println("Generacion: " + i + "\nPoblacion: \n" + poblacion);
 					return;
 				}
 			}
@@ -150,7 +160,7 @@ public class Algoritmo implements IAlgoritmo {
 		for(IIndividuo in: poblacion) {
 			dominio.calcularFitness(in);
 		}
-		System.out.println("Poblacion: \n" + poblacion);
+		System.out.println("Generacion: " + 10 + "\nPoblacion: \n" + poblacion);
 		return;
 	}
 

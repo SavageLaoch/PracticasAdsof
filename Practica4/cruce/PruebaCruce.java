@@ -16,8 +16,7 @@ public class PruebaCruce {
 		List<IIndividuo> descendientes = new ArrayList<>();
 		nodo1 = (int) Math.floor(Math.random() * i1.totalNodos());
 		nodo2 = (int) Math.floor(Math.random() * i2.totalNodos());
-		System.out.print("Punto de cruce del progenitor 1: " + nodo1 + "\n");
-		System.out.print("Punto de cruce del progenitor 2: " + nodo2 + "\n");
+	
 		if(nodo1 == 0 && nodo2 == 0) {
 			throw new CruceNuloException();
 		}
