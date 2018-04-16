@@ -55,13 +55,20 @@ public class Individuo implements IIndividuo {
 	
 	public INodo crearNodoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones){
 		int ran;
+		INodo nnodo;
+		int hijos;
 		if (profundidad == 0){
-			ran = (int) (funcionaleatoria);
+			ran = (int) Math.floor(Math.random() * terminales.size());
 			return terminales.get(ran);
 		}
-		ran = (int) (funcionaleatoria);
-		for (descendientes){
-			
+		ran = (int) Math.floor(Math.random() * funciones.size());
+		nnodo = funciones.get(ran).copy();
+		hijos = ((Funcion) nnodo).getNumArg();
+		for(int i = 0; i < hijos; i++) {
+			nnodo.incluirDescendiente(crearNodoAleatorio(profundidad - 1,terminales,funciones));
+		}
+		return nnodo;
+	}
 		
 	/**
 	 * Crea un individuo aleatorio con la informacion dada

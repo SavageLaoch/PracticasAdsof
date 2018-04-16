@@ -42,16 +42,12 @@ public class PruebaCruce {
 
 		copian1 = n1.copy();
 		copian2 = n2.copy();
-		if(nodo1 == 0) {
-			descendiente1.setExpresion(ci2.copy());
-		}else {
-			descendiente1.getExpresion().intercambiarNodo(nodo1, copian2);
-		}
-		if(nodo2 == 0) {
-			descendiente2.setExpresion(ci1.copy());
-		}else {
-			descendiente2.getExpresion().intercambiarNodo(nodo2, copian1);
-		}
+		
+		descendiente1.getExpresion().intercambiarNodo(nodo1, copian2);
+		descendiente2.getExpresion().intercambiarNodo(nodo2, copian1);
+		
+		descendiente1.etiquetaNodos();
+		descendiente2.etiquetaNodos();
 		
 		descendientes.add(descendiente1);
 		descendientes.add(descendiente2);
