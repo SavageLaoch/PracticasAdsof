@@ -52,7 +52,17 @@ public class Individuo implements IIndividuo {
 		this.fitness = fitness;
 
 	}
-
+	
+	public INodo crearNodoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones){
+		int ran;
+		if (profundidad == 0){
+			ran = (int) (funcionaleatoria);
+			return terminales.get(ran);
+		}
+		ran = (int) (funcionaleatoria);
+		for (descendientes){
+			
+		
 	/**
 	 * Crea un individuo aleatorio con la informacion dada
 	 * @param profundidad Profundidad del individuo
@@ -61,10 +71,7 @@ public class Individuo implements IIndividuo {
 	 */
 	@Override
 	public void crearIndividuoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones) {
-		for(int i = 0; i < profundidad;i++) {
-			
-		}
-
+		this.expresion = crearNodoAleatorio(profundidad,terminales,funciones);
 	}
 	
 	/**
