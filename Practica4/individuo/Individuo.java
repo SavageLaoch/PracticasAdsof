@@ -52,7 +52,13 @@ public class Individuo implements IIndividuo {
 		this.fitness = fitness;
 
 	}
-	
+	/**
+	 * Crea un nodo aleatorio a partir de una profundidad y una serie de terminales y funciones
+	 * @param profundidad Profundiad de la expresion
+	 * @param terminales Terminales
+	 * @param funciones Funciones
+	 * @return Nueva expresion
+	 */
 	public INodo crearNodoAleatorio(int profundidad, List<Terminal> terminales, List<Funcion> funciones){
 		int ran;
 		INodo nnodo;
@@ -131,7 +137,10 @@ public class Individuo implements IIndividuo {
 		return expresion.numNodos();
 		
 	}
-	
+	/**
+	 * toString de individuo
+	 * return Individuo
+	 */
 	public String toString() {
 		return "Individuo: " + expresion + " Fitness: " +  fitness;
 	}

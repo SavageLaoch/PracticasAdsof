@@ -53,6 +53,7 @@ public abstract class Nodo implements INodo {
 	
 	/**
 	 * Funcion calcular(double x) implementada en otro sitio
+	 * @param x Valor sobre el cual calcular
 	 */
 	public abstract double calcular(double x);
 	
@@ -82,6 +83,7 @@ public abstract class Nodo implements INodo {
 	
 	/**
 	 * Funcion que etiqueta los nodos a partir de este nodo
+	 * @param etiqueta etiqueta
 	 */
 	public int etiquetar(int etiqueta) {
 		this.etiqueta=etiqueta;

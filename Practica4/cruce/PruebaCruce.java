@@ -7,7 +7,13 @@ import individuo.Individuo;
 import nodos.INodo;
 
 public class PruebaCruce {
-	
+	/**
+	 * Cruza dos individuos creando dos hijos
+	 * @param i1 Progenitor 1 
+	 * @param i2 Progenitor 2
+	 * @return Lista de individuos cruzados
+	 * @throws CruceNuloException No se ha podido realizar el cruce
+	 */
 	public List<IIndividuo> cruce(IIndividuo i1,IIndividuo i2) throws CruceNuloException{
 		int nodo1,nodo2;
 		INodo n1,n2;

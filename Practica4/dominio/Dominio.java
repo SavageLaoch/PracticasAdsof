@@ -76,10 +76,17 @@ public abstract class Dominio implements IDominio {
 		}
 		return conjuntoFunciones;
 	}
-	
+	/**
+	 * Devuelve el conjnto de terminales de un dominio
+	 * return Terminales del dominio
+	 */
 	public List<Terminal> getConjuntoTerminales(){
 		return conjuntoTerminales;
 	}
+	/**
+	 * Devuelve el conjunto de funciones de un dominio
+	 * retrun Funcion
+	 */
 	public List<Funcion> getConjuntoFunciones(){
 		return conjuntoFunciones;
 	}
@@ -116,7 +123,7 @@ public abstract class Dominio implements IDominio {
 	public double calcularFitness(IIndividuo individuo) {
 		double resultado = 0;
 		for(double valor: valores.keySet()) {
-			System.out.println("Valor: " + valor + " <-> " + "Rdo estimado: " + valor + " <-> " + "Rdo real: " + individuo.calcularExpresion(valores.get(valor)));
+			/*System.out.println("Valor: " + valor + " <-> " + "Rdo estimado: " + valor + " <-> " + "Rdo real: " + individuo.calcularExpresion(valores.get(valor)));*/
 			if((individuo.calcularExpresion(valor) - valores.get(valor)) <= 1 && (individuo.calcularExpresion(valor) - valores.get(valor)) >= -1 ) {
 				resultado = resultado + 1;
 			}

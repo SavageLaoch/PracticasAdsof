@@ -57,7 +57,9 @@ public class Algoritmo implements IAlgoritmo {
 		dominio.definirConjuntoFunciones(argumentos, raices);
 
 	}
-
+	/**
+	 * Crea una poblacion desde 0 con profunidad 2 y 20 individuos(se puede modificar en esta funcion)
+	 */
 	@Override
 	public void crearPoblacion() {
 		Individuo individuo;
@@ -68,17 +70,26 @@ public class Algoritmo implements IAlgoritmo {
 		}
 
 	}
-
+	/**
+	 * Crea una lista con los individuos cruzados (18 individuos por cruce)
+	 * @param prog1 Progenitor 1
+	 * @param pro2 Progenitor 2
+	 * @return Lista con los individuos cruzados
+	 */
 	@Override
 	public List<IIndividuo> cruce(IIndividuo prog1, IIndividuo prog2) throws CruceNuloException {
 		PruebaCruce cruce = new PruebaCruce();
 		List<IIndividuo> cruces = new ArrayList<>();
-		for(int i = 0; i < 9; i++) {
+		for(int i = 0; i < 49; i++) {
 			cruces.addAll(cruce.cruce(prog1, prog2));
 		}
 		return cruces;
 	}
-	/*^poblaciones de 20: pasan 2 directos (elite + otro)*/
+	/**
+	 * Crea una nueva generacion para la poblacion.
+	 * Selecciona un élite y un individuo aleatorio.
+	 * Selecciona otros dos individuos para el cruce.
+	 */
 	@Override
 	public void crearNuevaPoblacion() {
 		IIndividuo elite,prog1,prog2;
@@ -97,10 +108,11 @@ public class Algoritmo implements IAlgoritmo {
 			directo = (int) Math.floor(Math.random() * poblacion.size());
 		}
 		/*Metemos al elite y al que va directo*/
+		System.out.println("\n" + elite + "\n");
 		nuevaPoblacion.add(elite);
 		nuevaPoblacion.add(poblacion.get(directo));
 		/* torneo*/
-		while(torneo.size() < 4) {
+		while(torneo.size() < 10) {
 			paso = (int) Math.floor(Math.random() * poblacion.size());
 			if(! torneo.contains(poblacion.get(paso))) {
 				torneo.add(poblacion.get(paso));
@@ -132,26 +144,31 @@ public class Algoritmo implements IAlgoritmo {
 		poblacion = nuevaPoblacion;
 
 	}
-	
-	/* gen maxima 10, fitness minimo 10*/
+	/**
+	 * Ejecuta el algoritmo sobre el dominio que se le pasa.
+	 * Max gen = 100
+	 * Fitness min = 21
+	 */
 	@Override
 	public void ejecutar(IDominio dominio) {
 		this.dominio = dominio;
 		this.crearPoblacion();
 		try {
-			dominio.definirValoresPrueba("valoresReducido.txt");
+			dominio.definirValoresPrueba("valores.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 100; i++) {
+			System.out.println("\nGeneracion: " + i + "\n");
 			for(IIndividuo in: poblacion) {
 				dominio.calcularFitness(in);
 			}
 			for(IIndividuo in:poblacion) {
-				if(in.getFitness() >= 4) {
+				if(in.getFitness() >= 21) {
 					System.out.println("Generacion: " + i + "\nPoblacion: \n" + poblacion);
+					System.out.println("\nElite: " + in);
 					return;
 				}
 			}
@@ -160,7 +177,7 @@ public class Algoritmo implements IAlgoritmo {
 		for(IIndividuo in: poblacion) {
 			dominio.calcularFitness(in);
 		}
-		System.out.println("Generacion: " + 10 + "\nPoblacion: \n" + poblacion);
+		System.out.println("Generacion: " + 100 + "\nPoblacion: \n" + poblacion);
 		return;
 	}
 
