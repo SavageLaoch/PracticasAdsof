@@ -1,4 +1,5 @@
 package tester;
+
 import funcion.Funcion;
 import funcion.FuncionMultiplicacion;
 import funcion.FuncionResta;

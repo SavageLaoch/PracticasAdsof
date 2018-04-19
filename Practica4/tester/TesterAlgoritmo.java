@@ -13,7 +13,7 @@ public class TesterAlgoritmo {
 		array[1] = 2;
 		array[2] = 2;
 		try {
-			dom.definirConjuntoFunciones(array, "+","-","*");
+			dom.definirConjuntoFunciones(array, "+", "-", "*");
 		} catch (ArgsDistintosFuncionesException e) {
 			e.printStackTrace();
 		}
