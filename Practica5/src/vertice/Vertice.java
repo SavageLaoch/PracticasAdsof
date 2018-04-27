@@ -16,4 +16,8 @@ public class Vertice<T> {
 	public T getDatos() {
 		return datos;
 	}
+	
+	public String toString() {
+		return "Vertice: " + id + " " + datos.toString();
+	}
 } 
