@@ -1,5 +1,5 @@
 package grafo;
 
-public class GrafoDirigido extends Grafo {
+public class GrafoDirigido<T> extends Grafo<T> {
 	
 }

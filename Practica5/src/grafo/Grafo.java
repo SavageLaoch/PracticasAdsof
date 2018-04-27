@@ -6,7 +6,7 @@ import vertice.*;
 public abstract class Grafo<T> {
 	/*Para los grafos no dirigidos pondremos peso=0*/
 	private Map<Map<Integer,Integer>,Integer> arcos;
-	private Map<Integer,Vertice<T>> vertices;
+	protected Map<Integer,Vertice<T>> vertices;
 	
 	public Grafo() {
 		arcos = new TreeMap<>();
