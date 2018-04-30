@@ -38,6 +38,6 @@ public class GrafoNoDirigido<T> extends Grafo<T> {
 	}
 	
 	public List<Vertice<T>> getVecinosDe(Vertice<T> v){
-		
+		List<Vertice<T>> lista = new ArrayList<>();
 	}
 }
