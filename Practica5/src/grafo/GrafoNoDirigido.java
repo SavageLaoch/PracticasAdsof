@@ -15,7 +15,7 @@ public class GrafoNoDirigido<T> extends Grafo<T> {
 		Map<Integer,Integer> m2 = new TreeMap<>();
 		m1.put(v1.getId(), v2.getId());
 		m2.put(v2.getId(), v1.getId());
-		if ((arcos.containsKey(m1)==true)||(arcos.containsKey(m2)==true)) {
+		if (this.existeArco(v1, v2)||this.existeArco(v2, v1)) {
 			return;
 		}
 		
@@ -39,5 +39,13 @@ public class GrafoNoDirigido<T> extends Grafo<T> {
 	
 	public List<Vertice<T>> getVecinosDe(Vertice<T> v){
 		List<Vertice<T>> lista = new ArrayList<>();
+		for(Vertice<T> ver: super.vertices.values()) {
+			if(this.existeArco(v, ver)) {
+				lista.add(ver);
+			}else if(this.existeArco(ver, v)) {
+				lista.add(ver);
+			}
+		}
+		return lista;
 	}
 }

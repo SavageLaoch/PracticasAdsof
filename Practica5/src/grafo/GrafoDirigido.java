@@ -33,6 +33,12 @@ public class GrafoDirigido<T> extends Grafo<T> {
 	
 	public List<Vertice<T>> getVecinosDe(Vertice<T> v){
 		List<Vertice<T>> lista = new ArrayList<>();
+		for(Vertice<T> ver: super.vertices.values()) {
+			if(this.existeArco(v, ver)) {
+				lista.add(ver);
+			}
+		}
+		return lista;
 		
 	}
 }

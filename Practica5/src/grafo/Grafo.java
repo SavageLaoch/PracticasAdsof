@@ -9,7 +9,7 @@ public abstract class Grafo<T> {
 	protected Map<Integer,Vertice<T>> vertices;
 	
 	public Grafo() {
-		arcos = new TreeMap<>();
+		arcos = new HashMap<>();
 		vertices = new TreeMap<>();
 	}
 	
@@ -52,6 +52,12 @@ public abstract class Grafo<T> {
 	public abstract List<Vertice<T>> getVecinosDe(Vertice<T> v); // devuelve los vértices que tienen un arco con v
 	// (en grafo dirigido, v ha de ser origen de los arcos)
 	public String toString() {// los vértices del grafo han de presentarse ORDENADOS POR IDENTIFICADOR
-		
+		String res = "Vertices: \n";
+		for(Vertice<T> v :this.vertices.values()) {
+			res = res + v.toString() + "\n";
+		}
+		res = res + "Arcos: \n";
+		res = res + arcos.toString();
+		return res;
 	}
 }
