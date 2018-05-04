@@ -34,6 +34,9 @@ public abstract class Grafo<T> {
 	public int getNumVertices() {
 		return vertices.size();
 	}
+	public Vertice<T> getVertice(int id){
+		return this.getVertice(id);
+	}
 	
 	public abstract void addArco(Vertice<T> v1, Vertice<T> v2, double peso);
 	
