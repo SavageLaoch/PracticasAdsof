@@ -6,7 +6,7 @@ import vertice.Vertice;
 
 public class GrafoGOT extends GrafoNoDirigido<PersonajeGOT>{
 	public GrafoGOT(String ficheroVertices, String ficheroArcos) throws Exception {
-			
+		
 	}
 	
 	public Vertice<PersonajeGOT> getVertice(String nombre){
