@@ -26,4 +26,8 @@ public class PersonajeGOT {
 	public void setCasa(String casa) {
 		this.casa = casa;
 	}
+	
+	public String toString() {
+		return "Nombre :" + this.nombre + "\nCasa: " + this.casa + "\n"; 
+	}
 }

@@ -18,6 +18,6 @@ public class Vertice<T> {
 	}
 	
 	public String toString() {
-		return "Vertice: " + id + " " + datos.toString();
+		return "Vertice: \n" + id + " " + datos.toString();
 	}
 } 

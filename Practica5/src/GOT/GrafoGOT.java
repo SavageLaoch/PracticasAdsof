@@ -15,7 +15,7 @@ public class GrafoGOT extends GrafoNoDirigido<PersonajeGOT>{
 		super();
 		FileInputStream f = null;
 		String line;
-		f = new FileInputStream("got-s1-vertices.csv");
+		f = new FileInputStream(ficheroVertices);
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(f));
 		while ((line = buffer.readLine()) != null) {
 			String[] cosas = line.split(",");
@@ -23,14 +23,13 @@ public class GrafoGOT extends GrafoNoDirigido<PersonajeGOT>{
 			super.addVertice(Integer.parseInt(cosas[0]),personaje);
 		}
 		buffer.close();
-		
-		f = new FileInputStream("got-s01-vertices.csv");
-		buffer = new BufferedReader(new InputStreamReader(f));
-		while ((line = buffer.readLine()) != null) {
+		f = new FileInputStream(ficheroArcos);
+		BufferedReader buffer1 = new BufferedReader(new InputStreamReader(f));
+		while ((line = buffer1.readLine()) != null) {
 			String[] cosas = line.split(",");
-			super.addArco(this.getVertice(Integer.parseInt(cosas[0])),this.getVertice(Integer.parseInt(cosas[1])), Integer.parseInt(cosas[2]));
+			super.addArco(super.getVertice(Integer.parseInt(cosas[0])),super.getVertice(Integer.parseInt(cosas[1])), Double.parseDouble(cosas[2]));
 		}
-		buffer.close();
+		buffer1.close();
 		
 	}
 	
@@ -49,7 +48,7 @@ public class GrafoGOT extends GrafoNoDirigido<PersonajeGOT>{
 			public boolean test(PersonajeGOT personaje) {
 				return casa.equals(personaje.getCasa());
 			}
-		}
+		};
 		
 		List<String> personajes = new ArrayList<>();
 		
@@ -83,8 +82,17 @@ public class GrafoGOT extends GrafoNoDirigido<PersonajeGOT>{
 		return hash;
 	}
 				
-	public Map<String, Integer> personajesRelevantes(){
+	public Map<String, Double> personajesRelevantes(){
+		Map<String,Double> gradoPonderado = this.gradoPonderadoPersonajes();
+		Map<String,Double> ret = new HashMap<>();
+		double media = gradoPonderado.values().stream().reduce((x,y) -> x+y).get() / gradoPonderado.values().size() ;
 		
+		gradoPonderado.keySet().stream().forEach((p)->{
+			if (gradoPonderado.get(p) > media) {
+				ret.put(p, gradoPonderado.get(p));
+			}
+		});
+		return ret;
 	}
 	
 }

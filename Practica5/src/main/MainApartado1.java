@@ -1,9 +1,10 @@
+package main;
 import java.util.*;
 
 import grafo.*;
 import vertice.*;
 
-public class Main {
+public class MainApartado1 {
 	public static void main(String args[]) {
 		//Grafo<String> g = new GrafoNoDirigido<>();
 		Grafo<String> g = new GrafoDirigido<>();
