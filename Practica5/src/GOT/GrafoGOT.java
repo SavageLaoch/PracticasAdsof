@@ -85,7 +85,7 @@ public class GrafoGOT extends GrafoNoDirigido<PersonajeGOT>{
 	public Map<String, Double> personajesRelevantes(){
 		Map<String,Double> gradoPonderado = this.gradoPonderadoPersonajes();
 		Map<String,Double> ret = new HashMap<>();
-		double media = gradoPonderado.values().stream().reduce((x,y) -> x+y).get() / gradoPonderado.values().size() ;
+		double media = gradoPonderado.values().stream().reduce((x,y) -> x+y).get() / gradoPonderado.keySet().size() ;
 		
 		gradoPonderado.keySet().stream().forEach((p)->{
 			if (gradoPonderado.get(p) > media) {
