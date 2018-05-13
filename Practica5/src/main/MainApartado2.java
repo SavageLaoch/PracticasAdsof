@@ -11,15 +11,15 @@ public class MainApartado2 {
 		System.out.println("\nPersonajes de la casa " + grafo.casas().get(0) + ": \n");
 		grafo.miembrosCasa(grafo.casas().get(0)).stream().forEach(System.out::println);
 		System.out.println("\nGrado de los personajes: \n");
-		grafo.gradoPersonajes().keySet().stream().forEach((p) ->{
+		grafo.gradoPersonajes().keySet().stream().forEach((p) -> {
 			System.out.println("Personaje: " + p + " Grado: " + grafo.gradoPersonajes().get(p));
 		});
 		System.out.println("\nGrado ponderado de los personajes: \n");
-		grafo.gradoPonderadoPersonajes().keySet().stream().forEach((p) ->{
+		grafo.gradoPonderadoPersonajes().keySet().stream().forEach((p) -> {
 			System.out.println("Personaje: " + p + " Grado: " + grafo.gradoPonderadoPersonajes().get(p));
 		});
 		System.out.println("\nGrado ponderado de los personajes relevantes: \n");
-		grafo.personajesRelevantes().keySet().stream().forEach((p) ->{
+		grafo.personajesRelevantes().keySet().stream().forEach((p) -> {
 			System.out.println("Personaje: " + p + " Grado: " + grafo.personajesRelevantes().get(p));
 		});
 	}
