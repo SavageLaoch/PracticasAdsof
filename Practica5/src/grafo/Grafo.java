@@ -21,8 +21,8 @@ public abstract class Grafo<T> {
 	/**
 	 * Crea y anade un vertice al grafo
 	 * 
-	 * @param Datos
-	 *            del vertice
+	 * @param datos
+	 *            Datos del vertice
 	 * @return Vertice creado
 	 */
 	public Vertice<T> addVertice(T datos) {

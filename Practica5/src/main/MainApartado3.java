@@ -19,7 +19,7 @@ public class MainApartado3 {
 		simulador.attach(observador1);
 		simulador.attach(observador2);
 		for(int i = 0; i < N; i++) {
-			simulador.interaccion(personajes.get((int) (Math.random() * (personajes.size()))), 5);
+			simulador.interaccion(personajes.get((int) (Math.random() * (personajes.size()))), 10);
 		}
 		
 		System.out.println(observador1);

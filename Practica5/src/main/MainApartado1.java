@@ -7,8 +7,8 @@ import vertice.*;
 
 public class MainApartado1 {
 	public static void main(String args[]) {
-		// Grafo<String> g = new GrafoNoDirigido<>();
-		Grafo<String> g = new GrafoDirigido<>();
+		Grafo<String> g = new GrafoNoDirigido<>();
+		//Grafo<String> g = new GrafoDirigido<>();
 		System.out.println(g.getClass().getName() + "\n");
 		Vertice<String> v1 = g.addVertice("A");
 		Vertice<String> v2 = g.addVertice("B");

@@ -37,13 +37,21 @@ public class PersonajeGOT {
 	public String getCasa() {
 		return casa;
 	}
-	
+
+	/**
+	 * Compara dos personajes y mira si son iguales
+	 * 
+	 * @param p
+	 *            Personaje a comparar
+	 * @return True o False
+	 */
 	public boolean equals(PersonajeGOT p) {
-		if(this.nombre.equals(p.nombre) && this.casa.equals(p.casa)) {
+		if (this.nombre.equals(p.nombre) && this.casa.equals(p.casa)) {
 			return true;
 		}
 		return false;
 	}
+
 	/**
 	 * toString para un personaje
 	 */
