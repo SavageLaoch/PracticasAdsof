@@ -9,16 +9,17 @@ import vertice.Vertice;
 public class SimuladorGOT extends Sujeto {
 	private GrafoGOT grafo;
 	private Vertice<PersonajeGOT> personaje;
-	private Map<String,Integer> interacciones;
+	private List<Vertice<PersonajeGOT>> interacciones;
 	
 	public SimuladorGOT(GrafoGOT grafo) {
 		super();
 		this.grafo = grafo;
+		interacciones = new ArrayList<>();
 	}
 	
 	public void interaccion(String nombre,int numVeces) {
 		this.personaje = grafo.getVertice(nombre);
-		interacciones = new HashMap<>();
+		interacciones = new ArrayList<>();
 		Random gen = new Random();
 		List<Vertice<PersonajeGOT>> vecinos = grafo.getVecinosDe(personaje);
 		double denominador = 0;
@@ -29,15 +30,18 @@ public class SimuladorGOT extends Sujeto {
 			for(Vertice<PersonajeGOT> per: vecinos) {
 				double peso = grafo.getPesoDe(personaje, per) / denominador;
 				if(peso > gen.nextDouble()) {
-					if(interacciones.containsKey(per.getDatos().getCasa())) {
-						interacciones.put(per.getDatos().getCasa(), interacciones.get(per.getDatos().getCasa()) + 1);
-					}else {
-						interacciones.put(per.getDatos().getCasa(),1);
-					}
+					interacciones.add(per);
 					this.notificar();
 				}
 			}
-		}
-		
+		}	
+	}
+	
+	public Vertice<PersonajeGOT> getPersonaje(){
+		return personaje;
+	}
+	
+	public List<Vertice<PersonajeGOT>> getInteracciones(){
+		return interacciones;
 	}
 }

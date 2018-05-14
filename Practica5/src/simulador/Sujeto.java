@@ -21,6 +21,6 @@ public abstract class Sujeto {
 		Iterator<Observador> it;
 		it = observers.iterator();
 		while (it.hasNext())
-			it.next().update();
+			it.next().actualizar();
 	}
 }
